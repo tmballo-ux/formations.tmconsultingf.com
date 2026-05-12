@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos — Dr Tahirou Mballo</title>
+  <meta name="description" content="Découvrez le parcours académique et professionnel de Dr Tahirou Mballo : PhD Sorbonne, géomaticien, directeur industriel, formateur international." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .timeline { position: relative; padding-left: 40px; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 8px; top: 0; bottom: 0;
+      width: 1px; background: rgba(201,168,76,0.25);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 48px;
+    }
+    .timeline-dot {
+      position: absolute; left: -36px; top: 4px;
+      width: 14px; height: 14px;
+      background: var(--gold); border-radius: 50%;
+      border: 3px solid var(--off-white);
+    }
+    .timeline-year {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--black); margin-bottom: 6px;
+    }
+    .timeline-org {
+      font-size: 0.82rem; color: var(--mid);
+      font-weight: 500; margin-bottom: 10px;
+    }
+    .timeline-desc {
+      font-size: 0.88rem; color: var(--charcoal);
+      line-height: 1.8; font-weight: 300;
+    }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 48px;
+    }
+    .skill-block {
+      background: var(--white); padding: 28px 24px;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-top: 3px solid var(--gold);
+    }
+    .skill-block-title {
+      font-family: var(--font-display); font-size: 1.1rem;
+      font-weight: 600; color: var(--black); margin-bottom: 16px;
+    }
+    .skill-tag {
+      display: inline-block;
+      background: var(--gold-pale); color: var(--charcoal);
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      padding: 4px 10px; margin: 3px 3px 3px 0;
+    }
+    .about-split {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    @media (max-width: 768px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .about-split { grid-template-columns: 1fr; gap: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">TM</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Dr Tahirou Mballo</span>
+        <span class="nav-logo-sub">Expert · Formateur · Consultant</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="solutions.html">Solutions SaaS</a></li>
+      <li><a href="contact.html" class="nav-cta">Consultation</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>À propos</span>
+    </div>
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-line"></span>
+      <span>Parcours & expertise</span>
+    </div>
+    <h1 class="section-title">Dr Tahirou Mballo</h1>
+    <p class="section-subtitle">Président, Administrateur et Géomaticien. 15 ans d'expérience internationale en présidence, formation et conseil — Afrique, Europe, Amérique du Nord et Centrale.</p>
+  </div>
+</div>
+
+<!-- BIO SPLIT -->
+<section style="background:var(--off-white)">
+  <div class="container">
+    <div class="about-split">
+      <div>
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/696e6aacc1ed0f433fd55e11/cd7c0e10-d17a-49be-b29f-80b2550ee6e0/image+Tahirou.jpg"
+          alt="Dr Tahirou Mballo"
+          style="width:100%; max-width:460px; display:block;"
+          loading="lazy"
+        />
+      </div>
+      <div>
+        <div class="section-eyebrow fade-up">
+          <span class="section-eyebrow-line"></span>
+          <span>Qui je suis</span>
+        </div>
+        <h2 class="section-title fade-up">Transformer la stratégie<br><em>en résultats concrets</em></h2>
+        <p style="font-size:1rem; line-height:1.9; color:var(--charcoal); font-weight:300; margin-bottom:24px;" class="fade-up">
+          Dr Tahirou Mballo est Président, Administrateur et Géomaticien, avec une solide expérience en accompagnement des organisations, des gestionnaires et des équipes opérationnelles sur trois continents.
+        </p>
+        <p style="font-size:1rem; line-height:1.9; color:var(--charcoal); font-weight:300; margin-bottom:24px;" class="fade-up">
+          Son approche combine expertise technique, vision stratégique et compréhension profonde des réalités du terrain. Il intervient là où la stratégie doit devenir action : organisation des opérations, structuration des données, mise en place d'outils de pilotage et montée en compétences des équipes.
+        </p>
+        <p style="font-size:1rem; line-height:1.9; color:var(--charcoal); font-weight:300;" class="fade-up">
+          En géomatique, il accompagne la conception et la mise en place de bases de données à référence spatiale adaptées aux besoins des organisations et collectivités. Notre équipe développe également des solutions SaaS métier — GembaCoach, Orkestria, Punch TM, TM Ledger, SIG Intelligent — adaptées aux réalités des entreprises africaines et internationales.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIPLÔMES / TIMELINE -->
+<section style="background:var(--white)">
+  <div class="container">
+    <div class="section-eyebrow fade-up">
+      <span class="section-eyebrow-line"></span>
+      <span>Formation académique</span>
+    </div>
+    <h2 class="section-title fade-up">Diplômes &<br><em>parcours universitaire</em></h2>
+    <div style="max-width:700px; margin-top:48px;">
+      <div class="timeline">
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Paris, France</div>
+          <div class="timeline-title">PhD en Géographie</div>
+          <div class="timeline-org">Université Paris 1 Panthéon-Sorbonne</div>
+          <div class="timeline-desc">Analyse territoriale et géographie environnementale. Recherche de haut niveau combinant approche spatiale et enjeux organisationnels.</div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Reims, France</div>
+          <div class="timeline-title">DESS en Administration publique et privée</div>
+          <div class="timeline-org">Université de Reims Champagne-Ardenne</div>
+          <div class="timeline-desc">Management public et privé, stratégie organisationnelle, gouvernance des organisations.</div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Sherbrooke, Canada</div>
+          <div class="timeline-title">Diplôme de second cycle en Géomatique appliquée</div>
+          <div class="timeline-org">Université de Sherbrooke</div>
+          <div class="timeline-desc">Systèmes d'information géographique, bases de données spatiales, analyses géospatiales avancées et applications opérationnelles.</div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Orléans / Dakar</div>
+          <div class="timeline-title">Licence & Maîtrise en Géographie</div>
+          <div class="timeline-org">Université d'Orléans · Université Cheikh Anta Diop</div>
+          <div class="timeline-desc">Géographie humaine et physique. Formation fondamentale combinant approches francophones d'Europe et d'Afrique.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPÉRIENCE PRO -->
+<section style="background:var(--off-white)">
+  <div class="container">
+    <div class="section-eyebrow fade-up">
+      <span class="section-eyebrow-line"></span>
+      <span>Expérience professionnelle</span>
+    </div>
+    <h2 class="section-title fade-up">Postes de direction<br><em>& responsabilités</em></h2>
+    <div style="max-width:700px; margin-top:48px;">
+      <div class="timeline">
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Québec, Canada</div>
+          <div class="timeline-title">Directeur des Opérations</div>
+          <div class="timeline-org">Evolupak</div>
+          <div class="timeline-desc">Direction des opérations de production (thermoformage, extrusion). Mise en place de systèmes de pilotage, amélioration continue, gestion des équipes et des processus industriels.</div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Canada</div>
+          <div class="timeline-title">Président — AntarogeomatiK</div>
+          <div class="timeline-org">AntarogeomatiK</div>
+          <div class="timeline-desc">Présidence et direction stratégique. Développement de solutions géomatiques et pilotage d'une structure spécialisée en SIG et en géomatique appliquée.</div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Canada</div>
+          <div class="timeline-title">Président du Conseil d'Administration — VOSACH</div>
+          <div class="timeline-org">VOSACH</div>
+          <div class="timeline-desc">Gouvernance d'entreprise, administration organisationnelle, gestion stratégique et pilotage institutionnel.</div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Canada · France</div>
+          <div class="timeline-title">Professeur & Formateur</div>
+          <div class="timeline-org">Conseil Scolaire du Labrador · Université Paris 1 · Cégep</div>
+          <div class="timeline-desc">Enseignement et formation en géomatique, SIG et PostGIS dispensés à tous les niveaux : secondaire, cégep, universitaire et formation professionnelle continue. Approche pédagogique progressive et orientée pratique.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section style="background:var(--dark)">
+  <div class="container">
+    <div class="section-eyebrow fade-up">
+      <span class="section-eyebrow-line"></span>
+      <span>Domaines de compétence</span>
+    </div>
+    <h2 class="section-title fade-up" style="color:var(--white)">Une expertise<br><em>multidimensionnelle</em></h2>
+    <div class="skills-grid">
+      <div class="skill-block fade-up">
+        <div class="skill-block-title">⚙️ Gestion & leadership</div>
+        <span class="skill-tag">Lean Management</span>
+        <span class="skill-tag">Amélioration continue</span>
+        <span class="skill-tag">KPIs & Tableaux de bord</span>
+        <span class="skill-tag">Gestion de la production</span>
+        <span class="skill-tag">Thermoformage & extrusion</span>
+        <span class="skill-tag">Sécurité industrielle</span>
+        <span class="skill-tag">Leadership opérationnel</span>
+      </div>
+      <div class="skill-block fade-up">
+        <div class="skill-block-title">🗺️ Géomatique & SIG</div>
+        <span class="skill-tag">PostGIS</span>
+        <span class="skill-tag">QGIS / ArcGIS</span>
+        <span class="skill-tag">Bases de données spatiales</span>
+        <span class="skill-tag">SQL géospatial</span>
+        <span class="skill-tag">Analyses territoriales</span>
+        <span class="skill-tag">Cartographie thématique</span>
+        <span class="skill-tag">SIG Intelligent</span>
+      </div>
+      <div class="skill-block fade-up">
+        <div class="skill-block-title">💻 SaaS & Solutions numériques</div>
+        <span class="skill-tag">GembaCoach</span>
+        <span class="skill-tag">Orkestria</span>
+        <span class="skill-tag">Punch TM</span>
+        <span class="skill-tag">TM Ledger</span>
+        <span class="skill-tag">SIG Intelligent</span>
+        <span class="skill-tag">SaaS Afrique</span>
+        <span class="skill-tag">Architecture logicielle</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="container">
+    <h2 class="section-title">Travaillons ensemble</h2>
+    <p>Discutons de vos enjeux et définissons ensemble l'accompagnement qui vous convient.</p>
+    <a href="contact.html" class="btn btn-dark">Prendre contact →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Dr Tahirou Mballo</div>
+        <div class="footer-brand-tag">Expert · Formateur · Consultant</div>
+        <p class="footer-brand-desc">Expert en gestion des opérations industrielles et géomatique. Accompagnement, formations et conseil.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/tahirou-m-24b59b109" target="_blank" rel="noopener">in</a>
+          <a href="mailto:contact@tmconsultingf.com">@</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="solutions.html">Solutions SaaS</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+18195803923">📞 +1 819 580 39 23</a></li>
+          <li><a href="mailto:contact@tmconsultingf.com">✉ contact@tmconsultingf.com</a></li>
+          <li><a href="https://www.tmconsultingf.com" target="_blank">🌐 tmconsultingf.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Dr Tahirou Mballo · <a href="https://www.tmconsultingf.com">TM Consulting</a></p>
+      <p class="footer-copy">formations.tmconsultingf.com</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

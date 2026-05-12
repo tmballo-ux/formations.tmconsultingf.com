@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Consultation — Dr Tahirou Mballo</title>
+  <meta name="description" content="Contactez Dr Tahirou Mballo pour une consultation, une demande de formation ou un projet d'accompagnement." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">TM</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Dr Tahirou Mballo</span>
+        <span class="nav-logo-sub">Expert · Formateur · Consultant</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="solutions.html">Solutions SaaS</a></li>
+      <li><a href="contact.html" class="nav-cta">Consultation</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Contact & Consultation</span>
+    </div>
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-line"></span>
+      <span>Travaillons ensemble</span>
+    </div>
+    <h1 class="section-title">Discutons de votre projet</h1>
+    <p class="section-subtitle">Formations, conseil en opérations, géomatique ou accompagnement sur-mesure — écrivez-moi et je vous répondrai dans les 24 heures.</p>
+  </div>
+</div>
+
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- INFO CÔTÉ -->
+      <div>
+        <div class="section-eyebrow fade-up">
+          <span class="section-eyebrow-line"></span>
+          <span>Informations de contact</span>
+        </div>
+        <h2 class="section-title fade-up" style="font-size:1.8rem;margin-bottom:40px;">Plusieurs façons<br><em>de me joindre</em></h2>
+
+        <div class="contact-info-item fade-up">
+          <div class="contact-icon">📞</div>
+          <div class="contact-info-text">
+            <strong>Téléphone</strong>
+            <a href="tel:+18195803923">+1 819 580 39 23</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item fade-up">
+          <div class="contact-icon">✉</div>
+          <div class="contact-info-text">
+            <strong>Email</strong>
+            <a href="mailto:contact@tmconsultingf.com">contact@tmconsultingf.com</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item fade-up">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-info-text">
+            <strong>Site TM Consulting</strong>
+            <a href="https://www.tmconsultingf.com" target="_blank" rel="noopener">www.tmconsultingf.com</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item fade-up">
+          <div class="contact-icon">in</div>
+          <div class="contact-info-text">
+            <strong>LinkedIn</strong>
+            <a href="https://www.linkedin.com/in/tahirou-m-24b59b109" target="_blank" rel="noopener">Dr Tahirou Mballo</a>
+          </div>
+        </div>
+
+        <div style="background:var(--gold-pale);border:1px solid rgba(201,168,76,0.3);padding:28px 24px;margin-top:40px;" class="fade-up">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Zones d'intervention</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <span style="font-size:0.82rem;font-weight:500;color:var(--charcoal);">🇨🇦 Canada</span>
+            <span style="color:var(--silver)">·</span>
+            <span style="font-size:0.82rem;font-weight:500;color:var(--charcoal);">🇸🇳 Sénégal</span>
+            <span style="color:var(--silver)">·</span>
+            <span style="font-size:0.82rem;font-weight:500;color:var(--charcoal);">🇫🇷 France</span>
+            <span style="color:var(--silver)">·</span>
+            <span style="font-size:0.82rem;font-weight:500;color:var(--charcoal);">🌍 Afrique francophone</span>
+          </div>
+          <p style="font-size:0.8rem;color:var(--mid);margin-top:12px;line-height:1.6;">Interventions en présentiel et à distance. Déplacements possibles sur demande.</p>
+        </div>
+      </div>
+
+      <!-- FORMULAIRE -->
+      <div class="fade-up">
+        <form
+          id="contact-form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="contact-form"
+        >
+          <!-- Netlify hidden field -->
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display:none;"><label>Ne pas remplir : <input name="bot-field" /></label></p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="prenom">Prénom *</label>
+              <input class="form-input" type="text" id="prenom" name="prenom" required placeholder="Votre prénom" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nom">Nom *</label>
+              <input class="form-input" type="text" id="nom" name="nom" required placeholder="Votre nom" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email *</label>
+            <input class="form-input" type="email" id="email" name="email" required placeholder="votre@email.com" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="organisation">Organisation / Entreprise</label>
+            <input class="form-input" type="text" id="organisation" name="organisation" placeholder="Nom de votre organisation" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="sujet">Sujet de votre demande *</label>
+            <select class="form-select" id="sujet" name="sujet" required>
+              <option value="">— Sélectionnez un sujet —</option>
+              <option value="formation-operations">Formation — Gestion des opérations industrielles</option>
+              <option value="formation-geomatique">Formation — Géomatique & PostGIS</option>
+              <option value="gembacoach">GembaCoach — Coaching opérationnel</option>
+              <option value="conseil">Conseil & accompagnement sur-mesure</option>
+              <option value="consultation">Consultation initiale (gratuite)</option>
+              <option value="autre">Autre demande</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pays">Pays / Région</label>
+            <input class="form-input" type="text" id="pays" name="pays" placeholder="ex. Sénégal, Québec, Côte d'Ivoire…" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Votre message *</label>
+            <textarea class="form-textarea" id="message" name="message" required placeholder="Décrivez votre projet, vos besoins ou vos questions…" style="min-height:160px;"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:18px 32px;font-size:0.88rem;">
+            Envoyer le message →
+          </button>
+
+          <p style="font-size:0.75rem;color:var(--mid);text-align:center;margin-top:12px;">
+            Réponse garantie sous 24 heures. Vos données sont confidentielles.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Dr Tahirou Mballo</div>
+        <div class="footer-brand-tag">Expert · Formateur · Consultant</div>
+        <p class="footer-brand-desc">Expert en gestion des opérations industrielles et géomatique. Formations, conseil et accompagnement.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/tahirou-m-24b59b109" target="_blank" rel="noopener">in</a>
+          <a href="mailto:contact@tmconsultingf.com">@</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="solutions.html">Solutions SaaS</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+18195803923">📞 +1 819 580 39 23</a></li>
+          <li><a href="mailto:contact@tmconsultingf.com">✉ contact@tmconsultingf.com</a></li>
+          <li><a href="https://www.tmconsultingf.com" target="_blank">🌐 tmconsultingf.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Dr Tahirou Mballo · <a href="https://www.tmconsultingf.com">TM Consulting</a></p>
+      <p class="footer-copy">formations.tmconsultingf.com</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

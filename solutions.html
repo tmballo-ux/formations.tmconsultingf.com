@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solutions SaaS — Dr Tahirou Mballo · TM Consulting</title>
+  <meta name="description" content="Nos solutions logicielles SaaS développées pour les entreprises africaines et internationales : GembaCoach, Orkestria, Punch TM, TM Ledger, SIG Intelligent." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .saas-hero {
+      background: var(--dark);
+      padding: 160px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .saas-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 40%, rgba(201,168,76,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 60% at 5% 90%, rgba(139,26,26,0.07) 0%, transparent 55%);
+    }
+    .saas-hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+
+    /* Product cards */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 64px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.07);
+      overflow: hidden;
+      position: relative;
+      display: flex; flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.12);
+      border-color: var(--gold);
+    }
+
+    .product-card-header {
+      padding: 36px 36px 28px;
+      position: relative;
+    }
+
+    .product-card-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 36px; right: 36px;
+      height: 1px;
+      background: rgba(0,0,0,0.07);
+    }
+
+    .product-icon-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .product-icon {
+      width: 56px; height: 56px;
+      background: var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover .product-icon {
+      background: var(--gold);
+    }
+
+    .product-status {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+
+    .status-live { background: rgba(34,197,94,0.1); color: #15803d; }
+    .status-beta { background: rgba(201,168,76,0.15); color: #92690a; }
+    .status-dev  { background: rgba(99,102,241,0.1); color: #4338ca; }
+
+    .product-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .product-tagline {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0;
+    }
+
+    .product-card-body {
+      padding: 28px 36px 36px;
+      flex: 1; display: flex; flex-direction: column;
+    }
+
+    .product-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .product-features {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .product-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.82rem;
+      color: var(--charcoal);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .product-features li::before {
+      content: '→';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .product-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 12px 20px;
+      border: 1px solid rgba(201,168,76,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .product-cta:hover {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    /* SIG Intelligent - featured card spans full width */
+    .product-card.featured {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      min-height: 320px;
+    }
+
+    .product-card.featured .product-card-header {
+      width: 360px; flex-shrink: 0;
+      background: var(--dark);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 48px 44px;
+    }
+
+    .product-card.featured .product-card-header::after { display: none; }
+
+    .product-card.featured .product-name { color: var(--white); font-size: 2rem; }
+    .product-card.featured .product-tagline { color: var(--gold-light); }
+
+    .product-card.featured .product-card-body {
+      padding: 40px 48px;
+    }
+
+    .product-card.featured .product-desc {
+      font-size: 0.95rem;
+    }
+
+    .sig-highlights {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-bottom: 28px;
+    }
+
+    .sig-highlight {
+      padding: 16px;
+      background: var(--off-white);
+      border-top: 2px solid var(--gold);
+    }
+
+    .sig-highlight-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .sig-highlight-text {
+      font-size: 0.82rem;
+      color: var(--charcoal);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .saas-approach {
+      background: var(--dark);
+      padding: 80px 0;
+    }
+
+    .approach-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: rgba(255,255,255,0.06);
+      margin-top: 48px;
+    }
+
+    .approach-item {
+      background: var(--dark);
+      padding: 40px 28px;
+    }
+
+    .approach-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem; font-weight: 700;
+      color: rgba(201,168,76,0.3);
+      line-height: 1; margin-bottom: 16px;
+    }
+
+    .approach-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--white); margin-bottom: 12px;
+    }
+
+    .approach-desc {
+      font-size: 0.82rem; font-weight: 300;
+      color: var(--silver); line-height: 1.7;
+    }
+
+    @media (max-width: 1024px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .product-card.featured { flex-direction: column; }
+      .product-card.featured .product-card-header { width: 100%; }
+      .sig-highlights { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .product-card.featured { grid-column: auto; }
+      .sig-highlights { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">TM</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Dr Tahirou Mballo</span>
+        <span class="nav-logo-sub">Expert · Formateur · Consultant</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="solutions.html">Solutions SaaS</a></li>
+      <li><a href="contact.html" class="nav-cta">Consultation</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="saas-hero">
+  <div class="saas-hero-grid"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Solutions SaaS</span>
+    </div>
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-line"></span>
+      <span>Nos solutions logicielles</span>
+    </div>
+    <h1 class="section-title" style="color:var(--white);max-width:680px;">Des SaaS métier conçus pour<br><em>les réalités africaines et mondiales</em></h1>
+    <p class="section-subtitle" style="color:var(--silver);max-width:620px;">
+      Notre équipe développe des solutions logicielles SaaS adaptées aux contraintes et aux opportunités des marchés africains, d'Amérique centrale et d'Europe. Des outils opérationnels, pragmatiques, déployables rapidement.
+    </p>
+  </div>
+</div>
+
+<!-- PRODUITS -->
+<section style="background:var(--off-white)">
+  <div class="container">
+    <div class="section-eyebrow fade-up">
+      <span class="section-eyebrow-line"></span>
+      <span>Portfolio de solutions</span>
+    </div>
+    <h2 class="section-title fade-up">5 solutions,<br><em>un écosystème cohérent</em></h2>
+
+    <div class="product-grid">
+
+      <!-- GembaCoach -->
+      <div class="product-card fade-up">
+        <div class="product-card-header">
+          <div class="product-icon-row">
+            <div class="product-icon">🎯</div>
+            <span class="product-status status-live">Disponible</span>
+          </div>
+          <div class="product-name">GembaCoach</div>
+          <div class="product-tagline">Coaching opérationnel terrain</div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-desc">
+            Outil de coaching basé sur la méthode Gemba — le management par présence terrain. Conçu pour les superviseurs et gestionnaires en milieu industriel qui veulent accompagner leurs équipes directement là où se crée la valeur.
+          </p>
+          <ul class="product-features">
+            <li>Fiches d'observation Gemba Walk structurées</li>
+            <li>Suivi des problèmes identifiés et plans d'action</li>
+            <li>Tableau de bord superviseur en temps réel</li>
+            <li>Historique des rondes et indicateurs d'évolution</li>
+          </ul>
+          <a href="https://vscode-9ee95aac-2e57-4ca8-9228-e167782f93cc.preview.emergentagent.com/" target="_blank" rel="noopener" class="product-cta">
+            Accéder à GembaCoach →
+          </a>
+        </div>
+      </div>
+
+      <!-- Orkestria -->
+      <div class="product-card fade-up">
+        <div class="product-card-header">
+          <div class="product-icon-row">
+            <div class="product-icon">📋</div>
+            <span class="product-status status-beta">Bêta</span>
+          </div>
+          <div class="product-name">Orkestria</div>
+          <div class="product-tagline">Gestion de projet SaaS</div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-desc">
+            Plateforme de gestion de projet conçue pour les équipes africaines et internationales. Orkestria simplifie la planification, le suivi et la collaboration — sans la complexité des outils occidentaux surdimensionnés.
+          </p>
+          <ul class="product-features">
+            <li>Gestion des projets, tâches et jalons</li>
+            <li>Collaboration d'équipe multi-sites</li>
+            <li>Tableaux de bord de progression</li>
+            <li>Notifications et suivi des responsabilités</li>
+          </ul>
+          <a href="contact.html?produit=orkestria" class="product-cta">
+            Demander l'accès →
+          </a>
+        </div>
+      </div>
+
+      <!-- Punch TM -->
+      <div class="product-card fade-up">
+        <div class="product-card-header">
+          <div class="product-icon-row">
+            <div class="product-icon">⏱️</div>
+            <span class="product-status status-beta">Bêta</span>
+          </div>
+          <div class="product-name">Punch TM</div>
+          <div class="product-tagline">Pointage industriel SaaS</div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-desc">
+            Solution SaaS de pointage industriel adaptée aux environnements de production en Afrique. Suivi des présences, des heures travaillées, des absences et des rotations d'équipes — sans infrastructure lourde.
+          </p>
+          <ul class="product-features">
+            <li>Pointage numérique par opérateur</li>
+            <li>Gestion des équipes, rotations et shifts</li>
+            <li>Rapports RH automatisés (présences, absences)</li>
+            <li>Compatible mobile et faible connectivité</li>
+          </ul>
+          <a href="contact.html?produit=punch-tm" class="product-cta">
+            Demander une démo →
+          </a>
+        </div>
+      </div>
+
+      <!-- TM Ledger -->
+      <div class="product-card fade-up">
+        <div class="product-card-header">
+          <div class="product-icon-row">
+            <div class="product-icon">💰</div>
+            <span class="product-status status-dev">En développement</span>
+          </div>
+          <div class="product-name">TM Ledger</div>
+          <div class="product-tagline">Gestion financière & comptabilité</div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-desc">
+            SaaS de gestion financière et comptable adapté aux PME africaines et francophones. TM Ledger simplifie la tenue des comptes, le suivi de trésorerie et la génération de rapports financiers conformes aux normes locales.
+          </p>
+          <ul class="product-features">
+            <li>Comptabilité générale simplifiée</li>
+            <li>Suivi de trésorerie et flux financiers</li>
+            <li>Facturation et gestion des paiements</li>
+            <li>Rapports financiers et tableaux de bord</li>
+          </ul>
+          <a href="contact.html?produit=tm-ledger" class="product-cta">
+            Être notifié au lancement →
+          </a>
+        </div>
+      </div>
+
+      <!-- SIG Intelligent - featured -->
+      <div class="product-card featured fade-up">
+        <div class="product-card-header">
+          <div class="product-icon-row" style="justify-content:flex-start;gap:16px;">
+            <div class="product-icon" style="background:rgba(201,168,76,0.15);">🗺️</div>
+            <span class="product-status status-live" style="background:rgba(201,168,76,0.15);color:var(--gold-light);">Disponible</span>
+          </div>
+          <div class="product-name">SIG Intelligent</div>
+          <div class="product-tagline">Géomatique & analyses spatiales IA</div>
+          <p style="font-size:0.8rem;color:var(--silver);line-height:1.6;margin-top:16px;font-weight:300;">
+            Développé en partenariat avec TM Consulting
+          </p>
+        </div>
+        <div class="product-card-body">
+          <p class="product-desc">
+            SIG Intelligent est notre plateforme de géomatique avancée intégrant l'intelligence artificielle pour l'analyse territoriale, la gestion des données spatiales et la prise de décision géolocalisée. Développée conjointement par TM Consulting et Dr Tahirou Mballo, elle s'adresse aux collectivités, entreprises et institutions qui veulent exploiter le pouvoir des données géographiques.
+          </p>
+          <div class="sig-highlights">
+            <div class="sig-highlight">
+              <div class="sig-highlight-title">Bases de données spatiales</div>
+              <div class="sig-highlight-text">PostgreSQL/PostGIS, requêtes géospatiales avancées, stockage et analyse de données territoriales volumineuses.</div>
+            </div>
+            <div class="sig-highlight">
+              <div class="sig-highlight-title">IA & analyses prédictives</div>
+              <div class="sig-highlight-text">Modèles d'analyse spatiale assistés par IA pour anticiper les évolutions territoriales et optimiser les décisions.</div>
+            </div>
+            <div class="sig-highlight">
+              <div class="sig-highlight-title">Tableaux de bord géographiques</div>
+              <div class="sig-highlight-text">Visualisation interactive des données sur cartes dynamiques, heatmaps, couches thématiques et rapports spatiaux.</div>
+            </div>
+          </div>
+          <a href="contact.html?produit=sig-intelligent" class="product-cta">
+            Demander une démonstration →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPROCHE DE DÉVELOPPEMENT -->
+<section class="saas-approach">
+  <div class="container">
+    <div class="section-eyebrow fade-up">
+      <span class="section-eyebrow-line"></span>
+      <span>Notre philosophie</span>
+    </div>
+    <h2 class="section-title fade-up" style="color:var(--white);">Des SaaS conçus pour<br><em>le terrain, pas pour les slides</em></h2>
+    <div class="approach-grid">
+      <div class="approach-item fade-up">
+        <div class="approach-num">01</div>
+        <div class="approach-title">Adaptés au contexte africain</div>
+        <p class="approach-desc">Faible connectivité, interfaces multilingues, intégrations paiement mobile (Wave, Orange Money), réalités des PME locales.</p>
+      </div>
+      <div class="approach-item fade-up">
+        <div class="approach-num">02</div>
+        <div class="approach-title">Déployables rapidement</div>
+        <p class="approach-desc">Architecture cloud-first, déploiement sans infrastructure lourde, configuration rapide, formation des équipes incluse.</p>
+      </div>
+      <div class="approach-item fade-up">
+        <div class="approach-num">03</div>
+        <div class="approach-title">Basés sur l'expérience terrain</div>
+        <p class="approach-desc">Chaque solution est née d'un besoin réel identifié sur le terrain, pas d'une hypothèse de laboratoire. 15 ans d'expérience opérationnelle au cœur du produit.</p>
+      </div>
+      <div class="approach-item fade-up">
+        <div class="approach-num">04</div>
+        <div class="approach-title">Évolutifs & sur-mesure</div>
+        <p class="approach-desc">Modules configurables, intégrations API ouvertes, accompagnement continu et adaptation aux besoins spécifiques de chaque organisation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="container">
+    <h2 class="section-title">Vous cherchez une solution adaptée à votre organisation ?</h2>
+    <p>Discutons de vos besoins — démo, intégration, ou développement sur-mesure.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-dark">Demander une démo →</a>
+      <a href="formations.html" class="btn btn-outline" style="color:var(--black);border-color:rgba(0,0,0,0.3)">Voir les formations</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Dr Tahirou Mballo</div>
+        <div class="footer-brand-tag">Expert · Formateur · Consultant</div>
+        <p class="footer-brand-desc">Expert en gestion opérationnelle et géomatique. Formations, conseil et solutions SaaS pour les entreprises et institutions.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/tahirou-m-24b59b109" target="_blank" rel="noopener">in</a>
+          <a href="mailto:contact@tmconsultingf.com">@</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="solutions.html">Solutions SaaS</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Nos solutions</div>
+        <ul class="footer-links">
+          <li><a href="#gembacoach">GembaCoach</a></li>
+          <li><a href="#orkestria">Orkestria</a></li>
+          <li><a href="#punch-tm">Punch TM</a></li>
+          <li><a href="#tm-ledger">TM Ledger</a></li>
+          <li><a href="#sig-intelligent">SIG Intelligent</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Dr Tahirou Mballo · <a href="https://www.tmconsultingf.com">TM Consulting</a></p>
+      <p class="footer-copy">formations.tmconsultingf.com</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

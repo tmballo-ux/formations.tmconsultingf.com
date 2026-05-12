@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formations — Dr Tahirou Mballo</title>
+  <meta name="description" content="Formations professionnelles en gestion des opérations industrielles et géomatique (SIG, PostGIS). Pour gestionnaires, superviseurs et équipes." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .module-list {
+      list-style: none;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      margin: 24px 0;
+    }
+    .module-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.88rem; color: var(--charcoal);
+      line-height: 1.5; padding: 12px 16px;
+      background: var(--off-white);
+      border-left: 2px solid var(--gold);
+    }
+    .module-list li::before { content: ''; }
+    .module-num {
+      font-family: var(--font-display);
+      font-size: 0.72rem; font-weight: 700;
+      color: var(--gold); flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .formation-detail {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      margin-bottom: 48px;
+    }
+    .formation-detail-header {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      min-height: 400px;
+    }
+    .formation-detail-img {
+      overflow: hidden;
+    }
+    .formation-detail-img img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .formation-detail-intro {
+      padding: 56px 48px;
+      background: var(--dark);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .formation-detail-body { padding: 48px; }
+    .objectives-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      margin: 24px 0;
+    }
+    .objective-item {
+      padding: 20px; background: var(--off-white);
+      border-top: 2px solid var(--gold);
+    }
+    .objective-item strong {
+      display: block; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .objective-item p { font-size: 0.86rem; color: var(--charcoal); line-height: 1.6; }
+    .audience-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .audience-tag {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--charcoal); font-size: 0.78rem;
+      font-weight: 600; padding: 6px 14px;
+    }
+    .format-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .format-badge {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 16px; background: var(--off-white);
+      border: 1px solid rgba(0,0,0,0.08); font-size: 0.8rem; font-weight: 500; color: var(--charcoal);
+    }
+    @media (max-width: 768px) {
+      .formation-detail-header { grid-template-columns: 1fr; }
+      .formation-detail-img { height: 260px; }
+      .formation-detail-intro { padding: 36px 28px; }
+      .formation-detail-body { padding: 32px 28px; }
+      .objectives-grid { grid-template-columns: 1fr; }
+      .module-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">TM</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Dr Tahirou Mballo</span>
+        <span class="nav-logo-sub">Expert · Formateur · Consultant</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="solutions.html">Solutions SaaS</a></li>
+      <li><a href="contact.html" class="nav-cta">Consultation</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Formations</span>
+    </div>
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-line"></span>
+      <span>Catalogue de formations</span>
+    </div>
+    <h1 class="section-title">Des formations conçues<br><em>pour transformer les pratiques</em></h1>
+    <p class="section-subtitle">Applicables dès le retour sur le terrain. Destinées aux professionnels, gestionnaires, équipes et étudiants — au Canada et en Afrique francophone.</p>
+  </div>
+</div>
+
+<!-- FILIÈRE 1 -->
+<section id="operations" style="background:var(--off-white)">
+  <div class="container">
+    <div class="section-eyebrow fade-up">
+      <span class="section-eyebrow-line"></span>
+      <span>Filière 1</span>
+    </div>
+
+    <div class="formation-detail fade-up">
+      <div class="formation-detail-header">
+        <div class="formation-detail-img">
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/696e6aacc1ed0f433fd55e11/6803b079-03dd-4d39-86c5-c8654b8a23af/Tah+realist.png"
+            alt="Formation gestion des opérations industrielles"
+            loading="lazy"
+          />
+        </div>
+        <div class="formation-detail-intro">
+          <span class="formation-tag" style="margin-bottom:20px;">⚙️ Management industriel</span>
+          <h2 class="section-title" style="color:var(--white);margin-bottom:16px;">Gestion des opérations industrielles</h2>
+          <p style="font-size:0.92rem;color:var(--silver);line-height:1.8;font-weight:300;">
+            Pour les gestionnaires, superviseurs et équipes opérationnelles. Une formation qui relie stratégie, performance, qualité et leadership — avec une approche pragmatique orientée résultats mesurables.
+          </p>
+          <div class="audience-tags">
+            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Directeurs</span>
+            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Gestionnaires</span>
+            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Superviseurs</span>
+            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Équipes terrain</span>
+          </div>
+        </div>
+      </div>
+      <div class="formation-detail-body">
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin-bottom:24px;">Objectifs pédagogiques</h3>
+        <div class="objectives-grid">
+          <div class="objective-item">
+            <strong>Processus</strong>
+            <p>Structurer et optimiser les processus opérationnels pour éliminer les inefficacités et améliorer le flux de production.</p>
+          </div>
+          <div class="objective-item">
+            <strong>Performance</strong>
+            <p>Mettre en place des indicateurs de performance (KPIs) et des tableaux de bord opérationnels pour piloter l'activité.</p>
+          </div>
+          <div class="objective-item">
+            <strong>Qualité & sécurité</strong>
+            <p>Renforcer la culture qualité, la conformité aux standards et les pratiques de sécurité au sein des équipes.</p>
+          </div>
+          <div class="objective-item">
+            <strong>Leadership</strong>
+            <p>Développer le leadership opérationnel, la responsabilisation et la capacité à animer des équipes haute performance.</p>
+          </div>
+        </div>
+
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Modules de formation</h3>
+        <ul class="module-list">
+          <li><span class="module-num">01</span> Introduction au management opérationnel</li>
+          <li><span class="module-num">02</span> Cartographie et analyse des processus</li>
+          <li><span class="module-num">03</span> Lean Management & amélioration continue</li>
+          <li><span class="module-num">04</span> Indicateurs de performance & tableaux de bord</li>
+          <li><span class="module-num">05</span> Gestion de la qualité (5S, Kaizen)</li>
+          <li><span class="module-num">06</span> Sécurité industrielle & culture HSE</li>
+          <li><span class="module-num">07</span> Leadership opérationnel & gestion des équipes</li>
+          <li><span class="module-num">08</span> Méthode Gemba & coaching terrain</li>
+        </ul>
+
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Modalités</h3>
+        <div class="format-badges">
+          <div class="format-badge">🏢 Présentiel en entreprise</div>
+          <div class="format-badge">💻 Formation en ligne</div>
+          <div class="format-badge">🎯 Programme sur-mesure</div>
+          <div class="format-badge">🌍 France · Canada · Afrique</div>
+        </div>
+
+        <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(0,0,0,0.06);display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="contact.html?formation=operations" class="btn btn-primary">Demander un devis →</a>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--black);border-color:rgba(0,0,0,0.2)">Plus d'informations</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILIÈRE 2 -->
+<section id="geomatique" style="background:var(--white)">
+  <div class="container">
+    <div class="section-eyebrow fade-up">
+      <span class="section-eyebrow-line"></span>
+      <span>Filière 2</span>
+    </div>
+
+    <div class="formation-detail fade-up">
+      <div class="formation-detail-header">
+        <div class="formation-detail-img">
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/696e6aacc1ed0f433fd55e11/e38bba4b-0550-420e-9aa5-94cae0486834/Pr%C3%A9sentation+de+l%27analyse+spatiale+en+conf%C3%A9rence.png"
+            alt="Formation géomatique SIG PostGIS"
+            loading="lazy"
+          />
+        </div>
+        <div class="formation-detail-intro">
+          <span class="formation-tag" style="margin-bottom:20px;">🗺️ Géomatique & SIG</span>
+          <h2 class="section-title" style="color:var(--white);margin-bottom:16px;">Géomatique & bases de données spatiales (PostGIS)</h2>
+          <p style="font-size:0.92rem;color:var(--silver);line-height:1.8;font-weight:300;">
+            Formations spécialisées en SIG et en gestion de bases de données à référence spatiale. Dispensées à l'université, au cégep, en entreprise et en collectivité, pour publics de niveaux variés.
+          </p>
+          <div class="audience-tags">
+            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Étudiants universitaires</span>
+            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Collectivités territoriales</span>
+            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Techniciens SIG</span>
+            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Aménageurs</span>
+          </div>
+        </div>
+      </div>
+      <div class="formation-detail-body">
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin-bottom:24px;">Objectifs pédagogiques</h3>
+        <div class="objectives-grid">
+          <div class="objective-item">
+            <strong>Fondamentaux SIG</strong>
+            <p>Maîtriser les concepts de base des systèmes d'information géographique et leur application dans des contextes professionnels.</p>
+          </div>
+          <div class="objective-item">
+            <strong>Bases de données spatiales</strong>
+            <p>Concevoir et gérer des bases de données à référence spatiale avec PostgreSQL/PostGIS pour l'analyse territoriale.</p>
+          </div>
+          <div class="objective-item">
+            <strong>Requêtes spatiales</strong>
+            <p>Écrire des requêtes SQL géospatiales avancées pour croiser, analyser et exploiter les données géographiques.</p>
+          </div>
+          <div class="objective-item">
+            <strong>Applications opérationnelles</strong>
+            <p>Développer des solutions géospatiales adaptées aux besoins réels des organisations et des collectivités territoriales.</p>
+          </div>
+        </div>
+
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Modules de formation</h3>
+        <ul class="module-list">
+          <li><span class="module-num">01</span> Introduction aux SIG et à la géomatique</li>
+          <li><span class="module-num">02</span> Modèles de données géographiques</li>
+          <li><span class="module-num">03</span> PostgreSQL pour la gestion de données</li>
+          <li><span class="module-num">04</span> Introduction à PostGIS</li>
+          <li><span class="module-num">05</span> Requêtes spatiales SQL avancées</li>
+          <li><span class="module-num">06</span> Analyses géographiques et statistiques spatiales</li>
+          <li><span class="module-num">07</span> Cartographie thématique et visualisation</li>
+          <li><span class="module-num">08</span> Projets appliqués (collectivités / entreprises)</li>
+        </ul>
+
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Niveaux & contextes</h3>
+        <div class="format-badges">
+          <div class="format-badge">🎓 Niveau universitaire</div>
+          <div class="format-badge">📚 Cégep / Secondaire</div>
+          <div class="format-badge">🏛️ Collectivités territoriales</div>
+          <div class="format-badge">🌍 Afrique francophone</div>
+        </div>
+
+        <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(0,0,0,0.06);display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="contact.html?formation=geomatique" class="btn btn-primary">Demander un devis →</a>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--black);border-color:rgba(0,0,0,0.2)">Plus d'informations</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="container">
+    <h2 class="section-title">Vous avez un besoin spécifique ?</h2>
+    <p>Chaque programme peut être adapté à votre contexte, vos équipes et vos objectifs.</p>
+    <a href="contact.html" class="btn btn-dark">Discutons de votre projet →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Dr Tahirou Mballo</div>
+        <div class="footer-brand-tag">Expert · Formateur · Consultant</div>
+        <p class="footer-brand-desc">Formations professionnelles en gestion opérationnelle et géomatique.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/tahirou-m-24b59b109" target="_blank" rel="noopener">in</a>
+          <a href="mailto:contact@tmconsultingf.com">@</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="solutions.html">Solutions SaaS</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+18195803923">📞 +1 819 580 39 23</a></li>
+          <li><a href="mailto:contact@tmconsultingf.com">✉ contact@tmconsultingf.com</a></li>
+          <li><a href="https://www.tmconsultingf.com" target="_blank">🌐 tmconsultingf.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Dr Tahirou Mballo · <a href="https://www.tmconsultingf.com">TM Consulting</a></p>
+      <p class="footer-copy">formations.tmconsultingf.com</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

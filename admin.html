@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — formations.tmconsultingf.com</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+    :root {
+      --bg: #0f0f0f;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --gold: #C9A84C;
+      --gold-dim: rgba(201,168,76,0.15);
+      --white: #f0f0f0;
+      --mid: #888;
+      --green: #22c55e;
+      --red: #ef4444;
+      --blue: #60a5fa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--white); }
+
+    /* ── LOGIN ── */
+    #login-screen {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg);
+    }
+
+    .login-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      padding: 48px 40px;
+      width: 100%; max-width: 380px;
+      text-align: center;
+    }
+
+    .login-logo {
+      width: 52px; height: 52px;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; font-weight: 700;
+      color: #000; margin: 0 auto 24px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .login-title {
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--white); margin-bottom: 6px;
+    }
+
+    .login-sub {
+      font-size: 0.8rem; color: var(--mid);
+      margin-bottom: 32px;
+    }
+
+    .login-input {
+      width: 100%; padding: 12px 16px;
+      background: var(--bg); border: 1px solid var(--border);
+      color: var(--white); font-family: 'DM Mono', monospace;
+      font-size: 0.9rem; outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 16px;
+    }
+
+    .login-input:focus { border-color: var(--gold); }
+
+    .login-btn {
+      width: 100%; padding: 12px;
+      background: var(--gold); color: #000;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .login-btn:hover { background: #e0bb6a; }
+
+    .login-error {
+      color: var(--red); font-size: 0.8rem;
+      margin-top: 12px; display: none;
+    }
+
+    /* ── ADMIN LAYOUT ── */
+    #admin-screen { display: none; min-height: 100vh; }
+
+    .admin-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .admin-header-left { display: flex; align-items: center; gap: 16px; }
+
+    .admin-logo {
+      width: 36px; height: 36px;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem; font-weight: 700; color: #000;
+    }
+
+    .admin-title {
+      font-size: 0.9rem; font-weight: 600; color: var(--white);
+    }
+
+    .admin-badge {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      background: var(--gold-dim); color: var(--gold);
+      padding: 3px 8px;
+    }
+
+    .admin-nav-pills {
+      display: flex; gap: 4px;
+    }
+
+    .nav-pill {
+      padding: 6px 14px;
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; border: 1px solid transparent;
+      color: var(--mid); background: none;
+      transition: all 0.2s;
+    }
+
+    .nav-pill:hover { color: var(--white); }
+    .nav-pill.active { color: var(--gold); border-color: var(--gold-dim); background: var(--gold-dim); }
+
+    .logout-btn {
+      font-size: 0.75rem; color: var(--mid);
+      background: none; border: 1px solid var(--border);
+      padding: 6px 14px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .logout-btn:hover { color: var(--red); border-color: var(--red); }
+
+    .admin-body {
+      max-width: 1100px; margin: 0 auto;
+      padding: 40px 32px;
+    }
+
+    /* ── TABS ── */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── SECTION CARDS ── */
+    .admin-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .admin-card-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .admin-card-title {
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .admin-card-body { padding: 24px; }
+
+    /* ── FORM FIELDS ── */
+    .field-group { margin-bottom: 20px; }
+
+    .field-label {
+      display: block;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 8px;
+    }
+
+    .field-input, .field-textarea, .field-select {
+      width: 100%; padding: 10px 14px;
+      background: var(--bg); border: 1px solid var(--border);
+      color: var(--white); font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem; outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .field-input:focus, .field-textarea:focus, .field-select:focus {
+      border-color: var(--gold);
+    }
+
+    .field-textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* ── BUTTONS ── */
+    .btn-save {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 24px;
+      background: var(--gold); color: #000;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-save:hover { background: #e0bb6a; }
+    .btn-save:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 24px;
+      background: transparent; color: var(--mid);
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1px solid var(--border); cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover { color: var(--white); border-color: var(--mid); }
+
+    .btn-danger {
+      background: transparent; color: var(--red);
+      border: 1px solid rgba(239,68,68,0.3);
+      padding: 6px 12px; font-size: 0.72rem;
+      font-weight: 600; cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-danger:hover { background: rgba(239,68,68,0.1); }
+
+    /* ── AI ASSISTANT ── */
+    .ai-panel {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .ai-panel-title {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .ai-dot {
+      width: 7px; height: 7px;
+      background: var(--gold); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .ai-input-row {
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+
+    .ai-input {
+      flex: 1; padding: 12px 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--white); font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; outline: none; resize: none;
+      min-height: 52px; max-height: 120px;
+      transition: border-color 0.2s;
+    }
+
+    .ai-input:focus { border-color: var(--gold); }
+
+    .ai-send-btn {
+      padding: 12px 20px;
+      background: var(--gold); color: #000;
+      font-size: 0.8rem; font-weight: 700;
+      border: none; cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .ai-send-btn:hover { background: #e0bb6a; }
+    .ai-send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .ai-response {
+      margin-top: 16px; padding: 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      font-size: 0.85rem; line-height: 1.7;
+      color: var(--white); display: none;
+      white-space: pre-wrap;
+    }
+
+    .ai-response.visible { display: block; }
+
+    .ai-response-actions {
+      margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;
+    }
+
+    /* ── STATS ── */
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 20px 24px;
+      border-top: 2px solid var(--gold);
+    }
+
+    .stat-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 1.8rem; font-weight: 500;
+      color: var(--gold); line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ── PAGES LIST ── */
+    .pages-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .page-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px;
+      background: var(--bg); border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+
+    .page-item:hover { border-color: var(--gold); }
+
+    .page-item-left { display: flex; align-items: center; gap: 12px; }
+
+    .page-status {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green); flex-shrink: 0;
+    }
+
+    .page-name {
+      font-size: 0.88rem; font-weight: 500; color: var(--white);
+    }
+
+    .page-file {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; color: var(--mid);
+    }
+
+    .page-actions { display: flex; gap: 8px; align-items: center; }
+
+    .page-link {
+      font-size: 0.72rem; color: var(--gold);
+      text-decoration: none;
+      padding: 4px 10px; border: 1px solid var(--gold-dim);
+      background: var(--gold-dim);
+      transition: all 0.2s;
+    }
+
+    .page-link:hover { background: var(--gold); color: #000; }
+
+    /* ── GITHUB DEPLOY ── */
+    .deploy-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .deploy-title {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 16px;
+    }
+
+    .deploy-steps { list-style: none; }
+
+    .deploy-step {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+    }
+
+    .deploy-step:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 24px; height: 24px;
+      background: var(--gold-dim); color: var(--gold);
+      font-size: 0.72rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+    .step-text strong { color: var(--white); }
+    .step-text code {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem; background: var(--surface);
+      padding: 1px 6px; color: var(--gold);
+    }
+
+    /* ── NOTICE ── */
+    .notice {
+      padding: 12px 16px;
+      font-size: 0.8rem; line-height: 1.6;
+      display: flex; gap: 10px; align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .notice-info { background: rgba(96,165,250,0.08); border: 1px solid rgba(96,165,250,0.2); color: var(--blue); }
+    .notice-success { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); color: var(--green); }
+    .notice-warn { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2); color: var(--gold); }
+
+    /* ── SAAS TABLE ── */
+    .saas-table { width: 100%; border-collapse: collapse; }
+    .saas-table th {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mid); padding: 8px 16px; text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .saas-table td {
+      padding: 12px 16px; font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .saas-table tr:last-child td { border-bottom: none; }
+    .saas-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    .status-badge {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 8px;
+    }
+
+    .s-live { background: rgba(34,197,94,0.1); color: var(--green); }
+    .s-beta { background: rgba(201,168,76,0.1); color: var(--gold); }
+    .s-dev  { background: rgba(96,165,250,0.1); color: var(--blue); }
+
+    /* Spinner */
+    .spinner {
+      display: inline-block; width: 14px; height: 14px;
+      border: 2px solid rgba(0,0,0,0.2);
+      border-top-color: #000;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 768px) {
+      .admin-body { padding: 24px 16px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .field-row { grid-template-columns: 1fr; }
+      .admin-nav-pills { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ LOGIN ══ -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">TM</div>
+    <div class="login-title">Panneau d'administration</div>
+    <div class="login-sub">formations.tmconsultingf.com</div>
+    <input type="password" id="pwd-input" class="login-input" placeholder="Mot de passe admin" />
+    <button class="login-btn" onclick="checkLogin()">Accéder →</button>
+    <div class="login-error" id="login-error">Mot de passe incorrect</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ ADMIN ══ -->
+<div id="admin-screen">
+
+  <header class="admin-header">
+    <div class="admin-header-left">
+      <div class="admin-logo">TM</div>
+      <span class="admin-title">formations.tmconsultingf.com</span>
+      <span class="admin-badge">Admin</span>
+    </div>
+    <div class="admin-nav-pills">
+      <button class="nav-pill active" onclick="switchTab('dashboard')">Dashboard</button>
+      <button class="nav-pill" onclick="switchTab('contenu')">Contenu</button>
+      <button class="nav-pill" onclick="switchTab('saas')">Solutions SaaS</button>
+      <button class="nav-pill" onclick="switchTab('contact')">Contact</button>
+      <button class="nav-pill" onclick="switchTab('deployer')">Déployer</button>
+    </div>
+    <button class="logout-btn" onclick="logout()">Déconnexion</button>
+  </header>
+
+  <div class="admin-body">
+
+    <!-- ── DASHBOARD ── -->
+    <div id="tab-dashboard" class="tab-content active">
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Pages publiées</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Solutions SaaS</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Pays d'intervention</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="last-deploy">—</div>
+          <div class="stat-label">Dernier déploiement</div>
+        </div>
+      </div>
+
+      <!-- AI ASSISTANT -->
+      <div class="ai-panel">
+        <div class="ai-panel-title">
+          <div class="ai-dot"></div>
+          Assistant IA — Modifications intelligentes
+        </div>
+        <p style="font-size:0.82rem;color:var(--mid);margin-bottom:16px;line-height:1.6;">
+          Décris en français ce que tu veux modifier sur le site. L'IA génère le code HTML corrigé que tu peux copier directement dans GitHub.
+        </p>
+        <div class="ai-input-row">
+          <textarea
+            id="ai-prompt"
+            class="ai-input"
+            placeholder="Ex: Change le titre principal de la page d'accueil pour dire 'Expert en transformation organisationnelle'..."
+            rows="2"
+          ></textarea>
+          <button class="ai-send-btn" id="ai-btn" onclick="sendToAI()">
+            Générer →
+          </button>
+        </div>
+        <div id="ai-file-select" style="margin-top:12px;display:flex;gap:10px;align-items:center;">
+          <span style="font-size:0.72rem;color:var(--mid);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;">Page concernée :</span>
+          <select id="ai-page" class="field-select" style="width:auto;padding:6px 12px;">
+            <option value="index.html">Accueil (index.html)</option>
+            <option value="a-propos.html">À propos</option>
+            <option value="formations.html">Formations</option>
+            <option value="solutions.html">Solutions SaaS</option>
+            <option value="contact.html">Contact</option>
+          </select>
+        </div>
+        <div id="ai-response" class="ai-response"></div>
+        <div id="ai-actions" class="ai-response-actions" style="display:none;">
+          <button class="btn-save" onclick="copyAIResponse()">📋 Copier le code</button>
+          <a id="ai-github-link" href="#" target="_blank" class="btn-outline">Ouvrir sur GitHub →</a>
+        </div>
+      </div>
+
+      <!-- PAGES -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">Pages du site</div>
+          <a href="https://formations.tmconsultingf.com" target="_blank" class="page-link">Voir le site →</a>
+        </div>
+        <div class="admin-card-body">
+          <div class="pages-list">
+            <div class="page-item">
+              <div class="page-item-left">
+                <div class="page-status"></div>
+                <div>
+                  <div class="page-name">Accueil</div>
+                  <div class="page-file">index.html</div>
+                </div>
+              </div>
+              <div class="page-actions">
+                <a href="https://formations.tmconsultingf.com" target="_blank" class="page-link">Voir</a>
+                <a href="https://github.com/tmballo-ux/formations.tmconsultingf.com/edit/main/index.html" target="_blank" class="page-link">Modifier sur GitHub</a>
+              </div>
+            </div>
+            <div class="page-item">
+              <div class="page-item-left">
+                <div class="page-status"></div>
+                <div>
+                  <div class="page-name">À propos</div>
+                  <div class="page-file">a-propos.html</div>
+                </div>
+              </div>
+              <div class="page-actions">
+                <a href="https://formations.tmconsultingf.com/a-propos.html" target="_blank" class="page-link">Voir</a>
+                <a href="https://github.com/tmballo-ux/formations.tmconsultingf.com/edit/main/a-propos.html" target="_blank" class="page-link">Modifier sur GitHub</a>
+              </div>
+            </div>
+            <div class="page-item">
+              <div class="page-item-left">
+                <div class="page-status"></div>
+                <div>
+                  <div class="page-name">Formations</div>
+                  <div class="page-file">formations.html</div>
+                </div>
+              </div>
+              <div class="page-actions">
+                <a href="https://formations.tmconsultingf.com/formations.html" target="_blank" class="page-link">Voir</a>
+                <a href="https://github.com/tmballo-ux/formations.tmconsultingf.com/edit/main/formations.html" target="_blank" class="page-link">Modifier sur GitHub</a>
+              </div>
+            </div>
+            <div class="page-item">
+              <div class="page-item-left">
+                <div class="page-status"></div>
+                <div>
+                  <div class="page-name">Solutions SaaS</div>
+                  <div class="page-file">solutions.html</div>
+                </div>
+              </div>
+              <div class="page-actions">
+                <a href="https://formations.tmconsultingf.com/solutions.html" target="_blank" class="page-link">Voir</a>
+                <a href="https://github.com/tmballo-ux/formations.tmconsultingf.com/edit/main/solutions.html" target="_blank" class="page-link">Modifier sur GitHub</a>
+              </div>
+            </div>
+            <div class="page-item">
+              <div class="page-item-left">
+                <div class="page-status"></div>
+                <div>
+                  <div class="page-name">Contact</div>
+                  <div class="page-file">contact.html</div>
+                </div>
+              </div>
+              <div class="page-actions">
+                <a href="https://formations.tmconsultingf.com/contact.html" target="_blank" class="page-link">Voir</a>
+                <a href="https://github.com/tmballo-ux/formations.tmconsultingf.com/edit/main/contact.html" target="_blank" class="page-link">Modifier sur GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTENU ── -->
+    <div id="tab-contenu" class="tab-content">
+
+      <div class="notice notice-info">
+        ℹ️ Les modifications ici génèrent du texte prêt à copier dans GitHub. Elles ne modifient pas le site directement — colle le résultat dans le fichier correspondant sur GitHub pour déclencher un redéploiement automatique.
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">🏠 Page d'accueil — Héro</div>
+        </div>
+        <div class="admin-card-body">
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">Ligne 1 du titre héro</label>
+              <input type="text" class="field-input" id="hero-line1" value="Maîtrisez vos opérations." />
+            </div>
+            <div class="field-group">
+              <label class="field-label">Ligne 2 (en or, italique)</label>
+              <input type="text" class="field-input" id="hero-line2" value="Décidez avec les données." />
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Sous-titre héro</label>
+            <textarea class="field-textarea" id="hero-sub" style="min-height:80px;">Expert en gestion des opérations industrielles et en géomatique, j'accompagne les entreprises, institutions et collectivités dans l'optimisation de leurs processus et le développement durable des compétences — en Afrique, en Europe et en Amérique du Nord et Centrale. Notre équipe développe également des solutions SaaS métier adaptées aux réalités des organisations.</textarea>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">Stat 1 — Nombre</label>
+              <input type="text" class="field-input" id="stat1-num" value="15+" />
+            </div>
+            <div class="field-group">
+              <label class="field-label">Stat 1 — Label</label>
+              <input type="text" class="field-input" id="stat1-label" value="Années d'expérience" />
+            </div>
+          </div>
+          <button class="btn-save" onclick="generateHeroCode()">Générer le code HTML →</button>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">👤 À propos — Citation</div>
+        </div>
+        <div class="admin-card-body">
+          <div class="field-group">
+            <label class="field-label">Citation principale (entre guillemets)</label>
+            <textarea class="field-textarea" id="about-quote">« Je ne propose pas de solutions théoriques, mais des méthodes applicables, adaptées à votre contexte, vos contraintes et vos objectifs. »</textarea>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Bio courte (page d'accueil)</label>
+            <textarea class="field-textarea" id="about-bio">PhD de l'Université Paris 1 Panthéon-Sorbonne, diplômé de Sherbrooke en géomatique appliquée, avec 15 ans d'expérience en présidence, administration et direction en Afrique, au Canada et en Europe.</textarea>
+          </div>
+          <button class="btn-save" onclick="generateAboutCode()">Générer le code HTML →</button>
+        </div>
+      </div>
+
+      <div id="code-output" style="display:none;" class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">✅ Code généré — Prêt à copier</div>
+          <button class="btn-save" onclick="copyGeneratedCode()">📋 Copier</button>
+        </div>
+        <div class="admin-card-body">
+          <pre id="generated-code" style="font-family:'DM Mono',monospace;font-size:0.78rem;color:#a0a0a0;white-space:pre-wrap;line-height:1.6;max-height:400px;overflow-y:auto;"></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SAAS ── -->
+    <div id="tab-saas" class="tab-content">
+
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">💻 Solutions SaaS — Statuts & descriptions</div>
+          <a href="https://github.com/tmballo-ux/formations.tmconsultingf.com/edit/main/solutions.html" target="_blank" class="page-link">Modifier sur GitHub →</a>
+        </div>
+        <div class="admin-card-body">
+          <table class="saas-table">
+            <thead>
+              <tr>
+                <th>Produit</th>
+                <th>Tagline</th>
+                <th>Statut</th>
+                <th>Lien</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>GembaCoach</strong></td>
+                <td><input type="text" class="field-input" value="Coaching opérationnel terrain" style="min-width:200px;" /></td>
+                <td><select class="field-select" style="width:auto;"><option>Disponible</option><option>Bêta</option><option>En développement</option></select></td>
+                <td><input type="text" class="field-input" value="https://vscode-9ee95aac-2e57-4ca8-9228-e167782f93cc.preview.emergentagent.com/" style="min-width:200px;" /></td>
+                <td><button class="btn-danger">Supprimer</button></td>
+              </tr>
+              <tr>
+                <td><strong>Orkestria</strong></td>
+                <td><input type="text" class="field-input" value="Gestion de projet SaaS" style="min-width:200px;" /></td>
+                <td><select class="field-select" style="width:auto;"><option>Disponible</option><option selected>Bêta</option><option>En développement</option></select></td>
+                <td><input type="text" class="field-input" value="" placeholder="URL à venir" style="min-width:200px;" /></td>
+                <td><button class="btn-danger">Supprimer</button></td>
+              </tr>
+              <tr>
+                <td><strong>Punch TM</strong></td>
+                <td><input type="text" class="field-input" value="Pointage industriel SaaS" style="min-width:200px;" /></td>
+                <td><select class="field-select" style="width:auto;"><option>Disponible</option><option selected>Bêta</option><option>En développement</option></select></td>
+                <td><input type="text" class="field-input" value="" placeholder="URL à venir" style="min-width:200px;" /></td>
+                <td><button class="btn-danger">Supprimer</button></td>
+              </tr>
+              <tr>
+                <td><strong>TM Ledger</strong></td>
+                <td><input type="text" class="field-input" value="Gestion financière & comptabilité" style="min-width:200px;" /></td>
+                <td><select class="field-select" style="width:auto;"><option>Disponible</option><option>Bêta</option><option selected>En développement</option></select></td>
+                <td><input type="text" class="field-input" value="" placeholder="URL à venir" style="min-width:200px;" /></td>
+                <td><button class="btn-danger">Supprimer</button></td>
+              </tr>
+              <tr>
+                <td><strong>SIG Intelligent</strong></td>
+                <td><input type="text" class="field-input" value="Géomatique & analyses spatiales IA" style="min-width:200px;" /></td>
+                <td><select class="field-select" style="width:auto;"><option selected>Disponible</option><option>Bêta</option><option>En développement</option></select></td>
+                <td><input type="text" class="field-input" value="" placeholder="URL à venir" style="min-width:200px;" /></td>
+                <td><button class="btn-danger">Supprimer</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:20px;">
+            <button class="btn-save" onclick="alert('Modifiez les valeurs ci-dessus puis utilisez l\'assistant IA pour générer le code mis à jour.')">Générer le code mis à jour →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTACT ── -->
+    <div id="tab-contact" class="tab-content">
+
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">📬 Informations de contact</div>
+        </div>
+        <div class="admin-card-body">
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">Téléphone</label>
+              <input type="text" class="field-input" value="+1 819 580 39 23" />
+            </div>
+            <div class="field-group">
+              <label class="field-label">Email principal</label>
+              <input type="text" class="field-input" value="contact@tmconsultingf.com" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">LinkedIn URL</label>
+              <input type="text" class="field-input" value="https://www.linkedin.com/in/tahirou-m-24b59b109" />
+            </div>
+            <div class="field-group">
+              <label class="field-label">Site TM Consulting</label>
+              <input type="text" class="field-input" value="https://www.tmconsultingf.com" />
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Zones d'intervention (séparées par virgule)</label>
+            <input type="text" class="field-input" value="Canada, Sénégal, France, Côte d'Ivoire, Maroc, Cameroun, Belgique, Afrique subsaharienne" />
+          </div>
+          <button class="btn-save" onclick="alert('Utilisez l\'assistant IA du Dashboard pour générer le code avec ces nouvelles informations.')">Générer le code →</button>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">📥 Soumissions du formulaire</div>
+        </div>
+        <div class="admin-card-body">
+          <div class="notice notice-info">
+            ℹ️ Les soumissions du formulaire de contact sont gérées par Netlify Forms. Pour les consulter : <a href="https://app.netlify.com" target="_blank" style="color:var(--gold);">app.netlify.com</a> → ton projet → <strong>Forms</strong>.
+          </div>
+          <a href="https://app.netlify.com" target="_blank" class="btn-outline">Voir les soumissions sur Netlify →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── DÉPLOYER ── -->
+    <div id="tab-deployer" class="tab-content">
+
+      <div class="notice notice-success">
+        ✅ Ton site est connecté à GitHub. Chaque modification sur la branche <code style="font-family:'DM Mono',monospace;font-size:0.8rem;">main</code> déclenche un redéploiement automatique sur Netlify en moins d'une minute.
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">🚀 Processus de mise à jour</div>
+        </div>
+        <div class="admin-card-body">
+          <div class="deploy-box">
+            <div class="deploy-title">Comment modifier et déployer</div>
+            <ul class="deploy-steps">
+              <li class="deploy-step">
+                <div class="step-num">1</div>
+                <div class="step-text">Utilise l'<strong>Assistant IA</strong> du Dashboard pour décrire ta modification en français et obtenir le code HTML corrigé.</div>
+              </li>
+              <li class="deploy-step">
+                <div class="step-num">2</div>
+                <div class="step-text">Va sur <a href="https://github.com/tmballo-ux/formations.tmconsultingf.com" target="_blank" style="color:var(--gold);">GitHub → formations.tmconsultingf.com</a> et ouvre le fichier à modifier.</div>
+              </li>
+              <li class="deploy-step">
+                <div class="step-num">3</div>
+                <div class="step-text">Clique le <strong>crayon ✏️</strong> pour éditer, colle le code corrigé, puis clique <strong>"Commit changes"</strong>.</div>
+              </li>
+              <li class="deploy-step">
+                <div class="step-num">4</div>
+                <div class="step-text">Netlify détecte le commit et redéploie automatiquement. Ton site est mis à jour en <strong>30 à 60 secondes</strong>.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="https://github.com/tmballo-ux/formations.tmconsultingf.com" target="_blank" class="btn-save">Ouvrir GitHub →</a>
+            <a href="https://app.netlify.com/projects/formations-tmconsultingf-com/overview" target="_blank" class="btn-outline">Dashboard Netlify →</a>
+            <a href="https://formations.tmconsultingf.com" target="_blank" class="btn-outline">Voir le site →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">⚙️ Changer le mot de passe admin</div>
+        </div>
+        <div class="admin-card-body">
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">Nouveau mot de passe</label>
+              <input type="password" class="field-input" id="new-pwd" placeholder="Nouveau mot de passe" />
+            </div>
+            <div class="field-group">
+              <label class="field-label">Confirmer</label>
+              <input type="password" class="field-input" id="confirm-pwd" placeholder="Répéter le mot de passe" />
+            </div>
+          </div>
+          <button class="btn-save" onclick="changePwd()">Changer le mot de passe →</button>
+          <div id="pwd-msg" style="margin-top:10px;font-size:0.8rem;display:none;"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // ── AUTH ──────────────────────────────────────────
+  const DEFAULT_PWD = 'TM@admin2025';
+
+  function getPwd() {
+    return localStorage.getItem('admin_pwd') || DEFAULT_PWD;
+  }
+
+  function checkLogin() {
+    const val = document.getElementById('pwd-input').value;
+    if (val === getPwd()) {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('admin-screen').style.display = 'block';
+      localStorage.setItem('admin_authed', '1');
+    } else {
+      document.getElementById('login-error').style.display = 'block';
+    }
+  }
+
+  document.getElementById('pwd-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkLogin();
+  });
+
+  function logout() {
+    localStorage.removeItem('admin_authed');
+    document.getElementById('admin-screen').style.display = 'none';
+    document.getElementById('login-screen').style.display = 'flex';
+    document.getElementById('pwd-input').value = '';
+  }
+
+  // Auto-login if already authenticated
+  if (localStorage.getItem('admin_authed') === '1') {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-screen').style.display = 'block';
+  }
+
+  function changePwd() {
+    const np = document.getElementById('new-pwd').value;
+    const cp = document.getElementById('confirm-pwd').value;
+    const msg = document.getElementById('pwd-msg');
+    if (!np) { msg.style.display='block'; msg.style.color='var(--red)'; msg.textContent='Entrez un mot de passe.'; return; }
+    if (np !== cp) { msg.style.display='block'; msg.style.color='var(--red)'; msg.textContent='Les mots de passe ne correspondent pas.'; return; }
+    localStorage.setItem('admin_pwd', np);
+    msg.style.display='block'; msg.style.color='var(--green)';
+    msg.textContent='✅ Mot de passe mis à jour avec succès.';
+  }
+
+  // ── TABS ──────────────────────────────────────────
+  function switchTab(name) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // ── AI ASSISTANT ──────────────────────────────────
+  async function sendToAI() {
+    const prompt = document.getElementById('ai-prompt').value.trim();
+    const page = document.getElementById('ai-page').value;
+    if (!prompt) return;
+
+    const btn = document.getElementById('ai-btn');
+    const responseEl = document.getElementById('ai-response');
+    const actionsEl = document.getElementById('ai-actions');
+
+    btn.innerHTML = '<span class="spinner"></span> Génération...';
+    btn.disabled = true;
+    responseEl.classList.add('visible');
+    responseEl.textContent = 'L\'IA analyse votre demande...';
+    actionsEl.style.display = 'none';
+
+    const systemPrompt = `Tu es un assistant spécialisé dans la modification de sites HTML statiques pour Dr Tahirou Mballo (formations.tmconsultingf.com).
+
+Contexte du site :
+- Site professionnel de Dr Tahirou Mballo : Président, Administrateur, Géomaticien, Formateur, Consultant
+- PhD Paris 1 Sorbonne, Sherbrooke (géomatique), Reims (DESS Administration publique et privée)
+- Expériences : Président AntarogeomatiK, Président CA VOSACH, Directeur des Opérations Evolupak, Professeur Conseil Scolaire du Labrador + Université Paris 1
+- Solutions SaaS : GembaCoach, Orkestria, Punch TM, TM Ledger, SIG Intelligent
+- Intervention : Afrique, Canada, Europe, Amérique centrale
+- Palette : or #C9A84C, noir #0D0D0D, blanc cassé #F8F5EE
+- Page concernée : ${page}
+
+Quand on te demande une modification :
+1. Explique brièvement ce que tu vas modifier (2-3 lignes)
+2. Fournis UNIQUEMENT le fragment HTML modifié (pas tout le fichier)
+3. Indique clairement quel élément remplacer (ex: "Remplace la section <div class='hero-eyebrow'>...")
+
+Réponds en français. Sois concis et précis.`;
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: systemPrompt,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+
+      const data = await res.json();
+      const text = data.content?.[0]?.text || 'Erreur de réponse.';
+      responseEl.textContent = text;
+
+      // Update GitHub link
+      const ghLink = document.getElementById('ai-github-link');
+      ghLink.href = `https://github.com/tmballo-ux/formations.tmconsultingf.com/edit/main/${page}`;
+
+      actionsEl.style.display = 'flex';
+    } catch (err) {
+      responseEl.textContent = 'Erreur de connexion. Vérifiez votre connexion internet.';
+    }
+
+    btn.innerHTML = 'Générer →';
+    btn.disabled = false;
+  }
+
+  document.getElementById('ai-prompt').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendToAI(); }
+  });
+
+  function copyAIResponse() {
+    const text = document.getElementById('ai-response').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = event.target;
+      btn.textContent = '✅ Copié !';
+      setTimeout(() => btn.textContent = '📋 Copier le code', 2000);
+    });
+  }
+
+  // ── CODE GENERATORS ──────────────────────────────
+  function generateHeroCode() {
+    const line1 = document.getElementById('hero-line1').value;
+    const line2 = document.getElementById('hero-line2').value;
+    const sub = document.getElementById('hero-sub').value;
+    const stat1num = document.getElementById('stat1-num').value;
+    const stat1label = document.getElementById('stat1-label').value;
+
+    const code = `<!-- Remplace le contenu de <div class="hero-content"> dans index.html -->
+
+<div class="hero-eyebrow">
+  <span class="hero-eyebrow-line"></span>
+  <span>PhD · Président · Administrateur · Géomaticien</span>
+</div>
+<h1 class="hero-title">
+  ${line1}
+  <strong>${line2}</strong>
+  Formez pour l'action.
+</h1>
+<p class="hero-sub">${sub}</p>
+
+<!-- Stat 1 : remplace data-target et label -->
+<div class="hero-stat-num" data-target="${parseInt(stat1num)||15}" data-suffix="${stat1num.includes('+') ? '+' : ''}">${stat1num}</div>
+<div class="hero-stat-label">${stat1label}</div>`;
+
+    showGeneratedCode(code);
+  }
+
+  function generateAboutCode() {
+    const quote = document.getElementById('about-quote').value;
+    const bio = document.getElementById('about-bio').value;
+
+    const code = `<!-- Remplace dans index.html : <blockquote class="about-quote"> -->
+<blockquote class="about-quote">
+  ${quote}
+</blockquote>
+
+<!-- Remplace dans index.html : <p class="about-bio"> -->
+<p class="about-bio">
+  ${bio}
+</p>`;
+
+    showGeneratedCode(code);
+  }
+
+  function showGeneratedCode(code) {
+    const el = document.getElementById('code-output');
+    document.getElementById('generated-code').textContent = code;
+    el.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function copyGeneratedCode() {
+    const code = document.getElementById('generated-code').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      event.target.textContent = '✅ Copié !';
+      setTimeout(() => event.target.textContent = '📋 Copier', 2000);
+    });
+  }
+
+  // ── LAST DEPLOY DATE ─────────────────────────────
+  document.getElementById('last-deploy').textContent = new Date().toLocaleDateString('fr-CA', { day:'2-digit', month:'short' });
+</script>
+</body>
+</html>

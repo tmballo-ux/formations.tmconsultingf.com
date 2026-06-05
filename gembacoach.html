@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GembaCoach — Dr Tahirou Mballo</title>
+  <meta name="description" content="GembaCoach : outil de coaching opérationnel terrain basé sur la méthode Gemba. Pour les superviseurs et gestionnaires en milieu industriel." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .gemba-hero {
+      background: var(--dark);
+      padding: 160px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .gemba-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 70% at 85% 50%, rgba(139,26,26,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 20% 80%, rgba(201,168,76,0.07) 0%, transparent 60%);
+    }
+    .gemba-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .gemba-what {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+    }
+    .gemba-step {
+      display: flex; gap: 20px; margin-bottom: 40px;
+    }
+    .gemba-step-num {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: var(--gold); color: var(--black);
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gemba-step-title {
+      font-family: var(--font-display); font-size: 1.1rem;
+      font-weight: 600; color: var(--black); margin-bottom: 8px;
+    }
+    .gemba-step-desc {
+      font-size: 0.88rem; color: var(--mid);
+      line-height: 1.8; font-weight: 300;
+    }
+    .benefit-card {
+      background: var(--white); padding: 32px 28px;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-top: 3px solid var(--gold);
+      text-align: center;
+    }
+    .benefit-icon { font-size: 2rem; margin-bottom: 16px; }
+    .benefit-title {
+      font-family: var(--font-display); font-size: 1.1rem;
+      font-weight: 600; color: var(--black); margin-bottom: 12px;
+    }
+    .benefit-desc { font-size: 0.84rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    @media (max-width: 768px) {
+      .gemba-what { grid-template-columns: 1fr; gap: 48px; }
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B671TXPC2J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B671TXPC2J');
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">TM</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Dr Tahirou Mballo</span>
+        <span class="nav-logo-sub">Expert · Formateur · Consultant</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="gembacoach.html">GembaCoach</a></li>
+      <li><a href="contact.html" class="nav-cta">Consultation</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="gemba-hero">
+  <div class="gemba-grid"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>GembaCoach</span>
+    </div>
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-line"></span>
+      <span>Outil de coaching terrain</span>
+    </div>
+    <h1 class="section-title" style="color:var(--white);max-width:600px;">GembaCoach — <em>Le coaching sur le terrain, là où ça compte</em></h1>
+    <p class="section-subtitle" style="color:var(--silver);margin-bottom:40px;">Un outil de coaching opérationnel basé sur la méthode Gemba. Pour accompagner les superviseurs et gestionnaires directement là où se crée la valeur — dans l'atelier, sur la ligne, au poste de travail.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="https://vscode-9ee95aac-2e57-4ca8-9228-e167782f93cc.preview.emergentagent.com/" target="_blank" rel="noopener" class="btn btn-primary">Accéder à GembaCoach →</a>
+      <a href="contact.html" class="btn btn-outline">En savoir plus</a>
+    </div>
+  </div>
+</div>
+
+<!-- QU'EST-CE QUE GEMBA -->
+<section style="background:var(--off-white)">
+  <div class="container">
+    <div class="gemba-what">
+      <div>
+        <div class="section-eyebrow fade-up">
+          <span class="section-eyebrow-line"></span>
+          <span>La méthode Gemba</span>
+        </div>
+        <h2 class="section-title fade-up">Aller au Gemba,<br><em>c'est aller à la source</em></h2>
+        <p style="font-size:1rem;line-height:1.9;color:var(--charcoal);font-weight:300;margin-bottom:24px;" class="fade-up">
+          En japonais, <strong>Gemba</strong> signifie « le lieu réel » — là où le travail se fait vraiment. Le Gemba Walk est une pratique de management qui consiste à aller observer sur le terrain, non pas pour surveiller, mais pour comprendre, soutenir et améliorer.
+        </p>
+        <p style="font-size:1rem;line-height:1.9;color:var(--charcoal);font-weight:300;" class="fade-up">
+          GembaCoach transforme cette pratique en outil structuré d'accompagnement : observation, questions ouvertes, identification des obstacles, plan d'action concret. Un coaching qui respecte les opérateurs et renforce la confiance.
+        </p>
+        <blockquote class="about-quote" style="border-color:var(--gold);background:var(--white);padding:20px 24px;margin-top:32px;">
+          « Le gestionnaire qui va au Gemba ne cherche pas des fautes — il cherche à comprendre et à retirer les obstacles de son équipe. »
+        </blockquote>
+      </div>
+      <div>
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/696e6aacc1ed0f433fd55e11/810925df-196d-402e-89e1-cc9a54d3794d/Dr+mballopresente+kpi.png"
+          alt="GembaCoach en action"
+          style="width:100%;object-fit:cover;"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT ÇA FONCTIONNE -->
+<section style="background:var(--white)">
+  <div class="container">
+    <div class="section-eyebrow fade-up">
+      <span class="section-eyebrow-line"></span>
+      <span>Approche</span>
+    </div>
+    <h2 class="section-title fade-up">Comment fonctionne<br><em>GembaCoach ?</em></h2>
+    <div style="max-width:700px;margin-top:48px;">
+      <div class="gemba-step fade-up">
+        <div class="gemba-step-num">1</div>
+        <div>
+          <div class="gemba-step-title">Aller au Gemba — Observer sans jugement</div>
+          <p class="gemba-step-desc">Le gestionnaire se rend sur le lieu de travail, observe les opérations, les flux et les conditions. L'objectif est de voir la réalité, non de valider ce qu'il croit savoir.</p>
+        </div>
+      </div>
+      <div class="gemba-step fade-up">
+        <div class="gemba-step-num">2</div>
+        <div>
+          <div class="gemba-step-title">Poser les bonnes questions</div>
+          <p class="gemba-step-desc">Engager les opérateurs avec des questions ouvertes centrées sur le travail : « Qu'est-ce qui vous empêche de bien faire votre travail ? », « Quels sont les obstacles récurrents ? »</p>
+        </div>
+      </div>
+      <div class="gemba-step fade-up">
+        <div class="gemba-step-num">3</div>
+        <div>
+          <div class="gemba-step-title">Identifier les problèmes réels</div>
+          <p class="gemba-step-desc">Distinguer les symptômes des causes profondes. Utiliser les outils GembaCoach pour structurer l'analyse et prioriser les points d'amélioration.</p>
+        </div>
+      </div>
+      <div class="gemba-step fade-up">
+        <div class="gemba-step-num">4</div>
+        <div>
+          <div class="gemba-step-title">Co-construire le plan d'action</div>
+          <p class="gemba-step-desc">Élaborer avec les équipes terrain des actions concrètes, réalistes et mesurables. Suivi régulier et ajustements basés sur les résultats.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BÉNÉFICES -->
+<section style="background:var(--dark)">
+  <div class="container">
+    <div class="section-eyebrow fade-up">
+      <span class="section-eyebrow-line"></span>
+      <span>Bénéfices</span>
+    </div>
+    <h2 class="section-title fade-up" style="color:var(--white)">Ce que GembaCoach<br><em>apporte à votre organisation</em></h2>
+    <div class="benefits-grid">
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon">👁️</div>
+        <div class="benefit-title">Visibilité terrain réelle</div>
+        <p class="benefit-desc">Avoir une image fidèle de ce qui se passe vraiment dans les opérations, sans filtre ni distorsion hiérarchique.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon">🤝</div>
+        <div class="benefit-title">Engagement des équipes</div>
+        <p class="benefit-desc">Renforcer la confiance et l'engagement des opérateurs en montrant que leur avis compte et que les obstacles sont pris au sérieux.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon">📈</div>
+        <div class="benefit-title">Performance mesurable</div>
+        <p class="benefit-desc">Des améliorations concrètes et traçables : réduction des temps d'arrêt, amélioration de la qualité, productivité accrue.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon">🔄</div>
+        <div class="benefit-title">Culture d'amélioration continue</div>
+        <p class="benefit-desc">Installer durablement une culture Kaizen où chaque membre de l'équipe contribue à l'amélioration quotidienne.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon">🎯</div>
+        <div class="benefit-title">Décisions basées sur les faits</div>
+        <p class="benefit-desc">Remplacer les suppositions par des observations réelles. Des décisions managériales fondées sur ce qui se passe vraiment.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon">🧭</div>
+        <div class="benefit-title">Leadership de proximité</div>
+        <p class="benefit-desc">Développer des gestionnaires et superviseurs présents, à l'écoute et capables d'accompagner leurs équipes vers la performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA GEMBA -->
+<section style="background:var(--off-white);text-align:center;padding:80px 0;">
+  <div class="container">
+    <div class="section-eyebrow fade-up" style="justify-content:center;">
+      <span class="section-eyebrow-line"></span>
+      <span>Accès à l'outil</span>
+    </div>
+    <h2 class="section-title fade-up" style="text-align:center;">Essayez GembaCoach<br><em>dès maintenant</em></h2>
+    <p style="font-size:1rem;color:var(--mid);max-width:500px;margin:0 auto 40px;line-height:1.8;" class="fade-up">
+      L'outil est accessible en ligne. Pour une démonstration personnalisée ou une intégration dans votre programme de formation, contactez-nous.
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="fade-up">
+      <a href="https://vscode-9ee95aac-2e57-4ca8-9228-e167782f93cc.preview.emergentagent.com/" target="_blank" rel="noopener" class="btn btn-primary">Accéder à GembaCoach →</a>
+      <a href="contact.html" class="btn btn-outline" style="color:var(--black);border-color:rgba(0,0,0,0.2)">Demander une démo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Dr Tahirou Mballo</div>
+        <div class="footer-brand-tag">Expert · Formateur · Consultant</div>
+        <p class="footer-brand-desc">Coaching opérationnel, formations industrielles et géomatique.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/tahirou-m-24b59b109" target="_blank" rel="noopener">in</a>
+          <a href="mailto:contact@tmconsultingf.com">@</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="gembacoach.html">GembaCoach</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+18195803923">📞 +1 819 580 39 23</a></li>
+          <li><a href="mailto:contact@tmconsultingf.com">✉ contact@tmconsultingf.com</a></li>
+          <li><a href="https://www.tmconsultingf.com" target="_blank">🌐 tmconsultingf.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Dr Tahirou Mballo · <a href="https://www.tmconsultingf.com">TM Consulting</a></p>
+      <p class="footer-copy">formations.tmconsultingf.com</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -102,14 +102,9 @@ nav {
 .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 
 .nav-logo-mark {
-  width: 40px; height: 40px;
-  background: var(--grad-primary);
-  border-radius: var(--r-sm);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display);
-  font-size: 1rem; font-weight: 800;
-  color: var(--white);
-  letter-spacing: -0.02em;
+  width: 44px; height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }

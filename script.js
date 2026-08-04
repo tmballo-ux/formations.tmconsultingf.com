@@ -63,7 +63,7 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
-// ── Form submission (Netlify/Vercel compatible) ───
+// ── Form submission (Formspree compatible) ───
 const form = document.getElementById('contact-form');
 if (form) {
   form.addEventListener('submit', async (e) => {
@@ -73,24 +73,25 @@ if (form) {
     btn.textContent = 'Envoi en cours…';
     btn.disabled = true;
 
-    // Use FormData for Netlify Forms
     const data = new FormData(form);
 
     try {
-      const res = await fetch('/', {
+      const res = await fetch(form.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString()
+        headers: { 'Accept': 'application/json' },
+        body: data
       });
 
       if (res.ok) {
         form.innerHTML = `
           <div style="text-align:center; padding: 48px 0;">
             <div style="font-size:2.5rem; margin-bottom:16px;">✓</div>
-            <p style="font-family:var(--font-display); font-size:1.4rem; color:var(--gold); margin-bottom:8px;">Message envoyé avec succès</p>
+            <p style="font-family:var(--font-display); font-size:1.4rem; color:var(--blue); margin-bottom:8px;">Message envoyé avec succès</p>
             <p style="font-size:0.9rem; color:var(--mid);">Je vous répondrai dans les 24 heures.</p>
           </div>
         `;
+      } else {
+        throw new Error('Formspree error');
       }
     } catch {
       btn.textContent = original;

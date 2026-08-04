@@ -14,74 +14,112 @@
     }
     .module-list li {
       display: flex; align-items: flex-start; gap: 10px;
-      font-size: 0.88rem; color: var(--charcoal);
-      line-height: 1.5; padding: 12px 16px;
+      font-size: 0.98rem; color: var(--gray-700);
+      line-height: 1.5; padding: 14px 18px;
       background: var(--off-white);
-      border-left: 2px solid var(--gold);
+      border-radius: var(--r-sm);
+      border-left: 3px solid var(--blue);
     }
-    .module-list li::before { content: ''; }
     .module-num {
       font-family: var(--font-display);
-      font-size: 0.72rem; font-weight: 700;
-      color: var(--gold); flex-shrink: 0;
+      font-size: 0.82rem; font-weight: 700;
+      color: var(--blue); flex-shrink: 0;
       margin-top: 1px;
     }
     .formation-detail {
       background: var(--white);
-      border: 1px solid rgba(0,0,0,0.06);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--r-lg);
+      overflow: hidden;
       margin-bottom: 48px;
+      box-shadow: var(--shadow-sm);
     }
     .formation-detail-header {
       display: grid; grid-template-columns: 1fr 1.4fr;
-      min-height: 400px;
+      min-height: 420px;
     }
-    .formation-detail-img {
-      overflow: hidden;
-    }
-    .formation-detail-img img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
+    .formation-detail-img { overflow: hidden; }
+    .formation-detail-img img { width: 100%; height: 100%; object-fit: cover; }
     .formation-detail-intro {
-      padding: 56px 48px;
-      background: var(--dark);
+      padding: 56px 52px;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
       display: flex; flex-direction: column; justify-content: center;
     }
-    .formation-detail-body { padding: 48px; }
+    .formation-detail-intro::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 90% 10%, rgba(37,99,235,0.22) 0%, transparent 60%);
+    }
+    .formation-detail-intro > * { position: relative; z-index: 2; }
+    .formation-detail-body { padding: 52px; }
     .objectives-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
       margin: 24px 0;
     }
     .objective-item {
-      padding: 20px; background: var(--off-white);
-      border-top: 2px solid var(--gold);
+      padding: 24px; background: var(--off-white);
+      border-radius: var(--r-md);
+      border-top: 3px solid var(--teal);
     }
     .objective-item strong {
-      display: block; font-size: 0.78rem;
-      font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 8px;
+      display: block; font-size: 0.86rem;
+      font-weight: 700; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--blue);
+      margin-bottom: 10px;
     }
-    .objective-item p { font-size: 0.86rem; color: var(--charcoal); line-height: 1.6; }
-    .audience-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .objective-item p { font-size: 0.96rem; color: var(--gray-700); line-height: 1.7; }
+    .audience-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
     .audience-tag {
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.3);
-      color: var(--charcoal); font-size: 0.78rem;
-      font-weight: 600; padding: 6px 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9); font-size: 0.86rem;
+      font-weight: 600; padding: 8px 16px;
+      border-radius: var(--r-full);
     }
     .format-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
     .format-badge {
       display: flex; align-items: center; gap: 8px;
-      padding: 10px 16px; background: var(--off-white);
-      border: 1px solid rgba(0,0,0,0.08); font-size: 0.8rem; font-weight: 500; color: var(--charcoal);
+      padding: 12px 18px; background: var(--off-white);
+      border: 1px solid var(--gray-100); border-radius: var(--r-full);
+      font-size: 0.9rem; font-weight: 500; color: var(--gray-700);
+    }
+    .formation-h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .track-card {
+      padding: 26px; background: var(--off-white);
+      border-radius: var(--r-md);
+      border-left: 3px solid var(--teal);
+    }
+    .track-card-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .track-card-meta { font-size: 0.92rem; color: var(--gray-500); margin-bottom: 12px; }
+    .track-card-desc { font-size: 0.94rem; color: var(--gray-700); line-height: 1.7; }
+    .stat-box {
+      background: var(--blue-pale); border: 1px solid rgba(37,99,235,0.15);
+      padding: 32px; border-radius: var(--r-lg); margin: 32px 0;
+    }
+    .stat-box-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; text-align: center; }
+    .stat-box-num { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; color: var(--blue); margin-bottom: 6px; }
+    .stat-box-label { font-size: 0.9rem; color: var(--gray-700); font-weight: 500; }
+    .detail-actions {
+      margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--gray-100);
+      display: flex; gap: 16px; flex-wrap: wrap;
     }
     @media (max-width: 768px) {
       .formation-detail-header { grid-template-columns: 1fr; }
       .formation-detail-img { height: 260px; }
-      .formation-detail-intro { padding: 36px 28px; }
-      .formation-detail-body { padding: 32px 28px; }
+      .formation-detail-intro { padding: 40px 28px; }
+      .formation-detail-body { padding: 36px 28px; }
       .objectives-grid { grid-template-columns: 1fr; }
       .module-list { grid-template-columns: 1fr; }
+      .stat-box-grid { grid-template-columns: 1fr; gap: 20px; }
+      div[style*="grid-template-columns:1fr 1fr;gap:24px"] { grid-template-columns: 1fr !important; }
     }
   </style>
 
@@ -108,7 +146,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="a-propos.html">À propos</a></li>
-      <li><a href="formations.html">Formations</a></li>
+      <li><a href="formations.html" class="active">Formations</a></li>
       <li><a href="solutions.html">Solutions SaaS</a></li>
       <li><a href="contact.html" class="nav-cta">Consultation</a></li>
     </ul>
@@ -124,11 +162,11 @@
       <span>Formations</span>
     </div>
     <div class="section-eyebrow">
-      <span class="section-eyebrow-line"></span>
+      <div class="section-eyebrow-dot"></div>
       <span>Catalogue de formations</span>
     </div>
     <h1 class="section-title">Des formations conçues<br><em>pour transformer les pratiques</em></h1>
-    <p class="section-subtitle">Applicables dès le retour sur le terrain. Destinées aux professionnels, gestionnaires, équipes et étudiants — au Canada et en Afrique francophone.</p>
+    <p class="section-subtitle">Applicables dès le retour sur le terrain. Destinées aux professionnels, gestionnaires, équipes et étudiants — au Canada et à l'international.</p>
   </div>
 </div>
 
@@ -136,7 +174,7 @@
 <section id="operations" style="background:var(--off-white)">
   <div class="container">
     <div class="section-eyebrow fade-up">
-      <span class="section-eyebrow-line"></span>
+      <div class="section-eyebrow-dot"></div>
       <span>Filière 1</span>
     </div>
 
@@ -144,7 +182,7 @@
       <div class="formation-detail-header">
         <div class="formation-detail-img">
           <img
-            src="Tahirou reunion.png"
+            src="formation-operations.png"
             alt="Formation gestion des opérations industrielles"
             loading="lazy"
           />
@@ -152,19 +190,19 @@
         <div class="formation-detail-intro">
           <span class="formation-tag" style="margin-bottom:20px;">⚙️ Management industriel</span>
           <h2 class="section-title" style="color:var(--white);margin-bottom:16px;">Gestion des opérations industrielles</h2>
-          <p style="font-size:0.92rem;color:var(--silver);line-height:1.8;font-weight:300;">
+          <p style="font-size:1.02rem;color:rgba(255,255,255,0.75);line-height:1.75;font-weight:400;">
             Pour les gestionnaires, superviseurs et équipes opérationnelles. Une formation qui relie stratégie, performance, qualité et leadership — avec une approche pragmatique orientée résultats mesurables.
           </p>
           <div class="audience-tags">
-            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Directeurs</span>
-            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Gestionnaires</span>
-            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Superviseurs</span>
-            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Équipes terrain</span>
+            <span class="audience-tag">Directeurs</span>
+            <span class="audience-tag">Gestionnaires</span>
+            <span class="audience-tag">Superviseurs</span>
+            <span class="audience-tag">Équipes terrain</span>
           </div>
         </div>
       </div>
       <div class="formation-detail-body">
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin-bottom:24px;">Objectifs pédagogiques</h3>
+        <h3 class="formation-h3">Objectifs pédagogiques</h3>
         <div class="objectives-grid">
           <div class="objective-item">
             <strong>Processus</strong>
@@ -184,7 +222,7 @@
           </div>
         </div>
 
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Modules de formation</h3>
+        <h3 class="formation-h3" style="margin-top:32px;">Modules de formation</h3>
         <ul class="module-list">
           <li><span class="module-num">01</span> Introduction au management opérationnel</li>
           <li><span class="module-num">02</span> Cartographie et analyse des processus</li>
@@ -196,7 +234,7 @@
           <li><span class="module-num">08</span> Méthode Gemba & coaching terrain</li>
         </ul>
 
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Modalités</h3>
+        <h3 class="formation-h3" style="margin-top:32px;">Modalités</h3>
         <div class="format-badges">
           <div class="format-badge">🏢 Présentiel en entreprise</div>
           <div class="format-badge">💻 Formation en ligne</div>
@@ -204,9 +242,9 @@
           <div class="format-badge">🌍 France · Canada · Afrique</div>
         </div>
 
-        <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(0,0,0,0.06);display:flex;gap:16px;flex-wrap:wrap;">
+        <div class="detail-actions">
           <a href="contact.html?formation=operations" class="btn btn-primary">Demander un devis →</a>
-          <a href="contact.html" class="btn btn-outline" style="color:var(--black);border-color:rgba(0,0,0,0.2)">Plus d'informations</a>
+          <a href="contact.html" class="btn btn-outline">Plus d'informations</a>
         </div>
       </div>
     </div>
@@ -217,7 +255,7 @@
 <section id="geomatique" style="background:var(--white)">
   <div class="container">
     <div class="section-eyebrow fade-up">
-      <span class="section-eyebrow-line"></span>
+      <div class="section-eyebrow-dot"></div>
       <span>Filière 2</span>
     </div>
 
@@ -233,19 +271,19 @@
         <div class="formation-detail-intro">
           <span class="formation-tag" style="margin-bottom:20px;">🗺️ Géomatique & SIG</span>
           <h2 class="section-title" style="color:var(--white);margin-bottom:16px;">Géomatique & bases de données spatiales (PostGIS)</h2>
-          <p style="font-size:0.92rem;color:var(--silver);line-height:1.8;font-weight:300;">
+          <p style="font-size:1.02rem;color:rgba(255,255,255,0.75);line-height:1.75;font-weight:400;">
             Formations spécialisées en SIG et en gestion de bases de données à référence spatiale. Dispensées à l'université, au cégep, en entreprise et en collectivité, pour publics de niveaux variés.
           </p>
           <div class="audience-tags">
-            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Étudiants universitaires</span>
-            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Collectivités territoriales</span>
-            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Techniciens SIG</span>
-            <span class="audience-tag" style="border-color:rgba(201,168,76,0.4)">Aménageurs</span>
+            <span class="audience-tag">Étudiants universitaires</span>
+            <span class="audience-tag">Collectivités territoriales</span>
+            <span class="audience-tag">Techniciens SIG</span>
+            <span class="audience-tag">Aménageurs</span>
           </div>
         </div>
       </div>
       <div class="formation-detail-body">
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin-bottom:24px;">Objectifs pédagogiques</h3>
+        <h3 class="formation-h3">Objectifs pédagogiques</h3>
         <div class="objectives-grid">
           <div class="objective-item">
             <strong>Fondamentaux SIG</strong>
@@ -265,7 +303,7 @@
           </div>
         </div>
 
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Modules de formation</h3>
+        <h3 class="formation-h3" style="margin-top:32px;">Modules de formation</h3>
         <ul class="module-list">
           <li><span class="module-num">01</span> Introduction aux SIG et à la géomatique</li>
           <li><span class="module-num">02</span> Modèles de données géographiques</li>
@@ -277,7 +315,7 @@
           <li><span class="module-num">08</span> Projets appliqués (collectivités / entreprises)</li>
         </ul>
 
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Niveaux & contextes</h3>
+        <h3 class="formation-h3" style="margin-top:32px;">Niveaux & contextes</h3>
         <div class="format-badges">
           <div class="format-badge">🎓 Niveau universitaire</div>
           <div class="format-badge">📚 Cégep / Secondaire</div>
@@ -285,9 +323,9 @@
           <div class="format-badge">🌍 Afrique francophone</div>
         </div>
 
-        <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(0,0,0,0.06);display:flex;gap:16px;flex-wrap:wrap;">
+        <div class="detail-actions">
           <a href="contact.html?formation=geomatique" class="btn btn-primary">Demander un devis →</a>
-          <a href="contact.html" class="btn btn-outline" style="color:var(--black);border-color:rgba(0,0,0,0.2)">Plus d'informations</a>
+          <a href="contact.html" class="btn btn-outline">Plus d'informations</a>
         </div>
       </div>
     </div>
@@ -298,34 +336,34 @@
 <section id="learnia" style="background:var(--off-white)">
   <div class="container">
     <div class="section-eyebrow fade-up">
-      <span class="section-eyebrow-line"></span>
+      <div class="section-eyebrow-dot"></div>
       <span>Filière 3</span>
     </div>
 
     <div class="formation-detail fade-up">
       <div class="formation-detail-header">
-        <div class="formation-detail-img" style="background:linear-gradient(135deg,#1a2a5e 0%,#2a3a7e 100%);display:flex;align-items:center;justify-content:center;">
+        <div class="formation-detail-img" style="background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);display:flex;align-items:center;justify-content:center;">
           <div style="text-align:center;color:white;padding:40px;">
             <div style="font-size:4rem;margin-bottom:16px;">🤖</div>
-            <div style="font-size:1.2rem;font-weight:600;">Plateforme interactive<br>avec IA</div>
+            <div style="font-size:1.3rem;font-weight:700;">Plateforme interactive<br>avec IA</div>
           </div>
         </div>
         <div class="formation-detail-intro">
           <span class="formation-tag" style="margin-bottom:20px;">🤖 Formation Interactive</span>
           <h2 class="section-title" style="color:var(--white);margin-bottom:16px;">Formation Géomatique TM LearnAI</h2>
-          <p style="font-size:1rem;color:#ffffff;line-height:1.9;font-weight:400;letter-spacing:0.3px;">
-            Apprenez le SIG, PostGIS et la cartographie avec votre <strong>formateur personnel alimenté par l'IA</strong>. Disponible 24/7 pour répondre à vos questions et adapter le contenu à votre rythme et votre niveau.
+          <p style="font-size:1.02rem;color:rgba(255,255,255,0.75);line-height:1.75;font-weight:400;">
+            Apprenez le SIG, PostGIS et la cartographie avec votre <strong style="color:var(--white)">formateur personnel alimenté par l'IA</strong>. Disponible 24/7 pour répondre à vos questions et adapter le contenu à votre rythme et votre niveau.
           </p>
           <div class="audience-tags">
-            <span style="background:#C9A84C !important;color:#000000 !important;font-size:0.9rem !important;font-weight:700 !important;padding:12px 18px !important;border-radius:6px !important;display:inline-block !important;margin:4px 4px 4px 0 !important;">Apprenants autonomes</span>
-            <span style="background:#C9A84C !important;color:#000000 !important;font-size:0.9rem !important;font-weight:700 !important;padding:12px 18px !important;border-radius:6px !important;display:inline-block !important;margin:4px 4px 4px 0 !important;">Professionnels SIG</span>
-            <span style="background:#C9A84C !important;color:#000000 !important;font-size:0.9rem !important;font-weight:700 !important;padding:12px 18px !important;border-radius:6px !important;display:inline-block !important;margin:4px 4px 4px 0 !important;">Techniciens</span>
-            <span style="background:#C9A84C !important;color:#000000 !important;font-size:0.9rem !important;font-weight:700 !important;padding:12px 18px !important;border-radius:6px !important;display:inline-block !important;margin:4px 4px 4px 0 !important;">Étudiants</span>
+            <span class="audience-tag">Apprenants autonomes</span>
+            <span class="audience-tag">Professionnels SIG</span>
+            <span class="audience-tag">Techniciens</span>
+            <span class="audience-tag">Étudiants</span>
           </div>
         </div>
       </div>
       <div class="formation-detail-body">
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin-bottom:24px;">Caractéristiques uniques</h3>
+        <h3 class="formation-h3">Caractéristiques uniques</h3>
         <div class="objectives-grid">
           <div class="objective-item">
             <strong>Assistante IA 24/7</strong>
@@ -345,7 +383,7 @@
           </div>
         </div>
 
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Modules interactifs</h3>
+        <h3 class="formation-h3" style="margin-top:32px;">Modules interactifs</h3>
         <ul class="module-list">
           <li><span class="module-num">01</span> Fondamentaux des SIG et géomatique</li>
           <li><span class="module-num">02</span> Modèles et structures de données géographiques</li>
@@ -361,21 +399,21 @@
           <li><span class="module-num">12</span> Certification et bilan de compétences</li>
         </ul>
 
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Parcours disponibles</h3>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;">
-          <div style="padding:24px;background:var(--off-white);border-left:3px solid var(--gold);">
-            <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--black);margin-bottom:8px;">SIG et Géomatique</div>
-            <div style="font-size:0.85rem;color:var(--mid);margin-bottom:12px;"><strong>8 modules</strong> — 24-32 heures</div>
-            <p style="font-size:0.84rem;color:var(--charcoal);line-height:1.6;">Parcours fondamental avec support IA 24/7 pour maîtriser les concepts, les outils et les applications pratiques.</p>
+        <h3 class="formation-h3" style="margin-top:32px;">Parcours disponibles</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0;">
+          <div class="track-card">
+            <div class="track-card-title">SIG et Géomatique</div>
+            <div class="track-card-meta"><strong style="color:var(--navy)">8 modules</strong> — 24-32 heures</div>
+            <p class="track-card-desc">Parcours fondamental avec support IA 24/7 pour maîtriser les concepts, les outils et les applications pratiques.</p>
           </div>
-          <div style="padding:24px;background:var(--off-white);border-left:3px solid var(--gold);">
-            <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--black);margin-bottom:8px;">PostGIS et QGIS</div>
-            <div style="font-size:0.85rem;color:var(--mid);margin-bottom:12px;"><strong>12 modules</strong> — 36-48 heures</div>
-            <p style="font-size:0.84rem;color:var(--charcoal);line-height:1.6;">Parcours avancé couvrant les bases de données spatiales, l'analyse géographique et les outils professionnels.</p>
+          <div class="track-card">
+            <div class="track-card-title">PostGIS et QGIS</div>
+            <div class="track-card-meta"><strong style="color:var(--navy)">12 modules</strong> — 36-48 heures</div>
+            <p class="track-card-desc">Parcours avancé couvrant les bases de données spatiales, l'analyse géographique et les outils professionnels.</p>
           </div>
         </div>
 
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--black);margin:32px 0 16px;">Format & accès</h3>
+        <h3 class="formation-h3" style="margin-top:32px;">Format & accès</h3>
         <div class="format-badges">
           <div class="format-badge">💻 100% en ligne</div>
           <div class="format-badge">⏰ À votre rythme</div>
@@ -385,26 +423,26 @@
           <div class="format-badge">🤖 Support IA 24/7</div>
         </div>
 
-        <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:28px;border-radius:8px;margin:32px 0;">
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center;">
+        <div class="stat-box">
+          <div class="stat-box-grid">
             <div>
-              <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--gold);margin-bottom:4px;">500+</div>
-              <div style="font-size:0.85rem;color:var(--charcoal);font-weight:500;">Apprenants formés</div>
+              <div class="stat-box-num">500+</div>
+              <div class="stat-box-label">Apprenants formés</div>
             </div>
             <div>
-              <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--gold);margin-bottom:4px;">24/7</div>
-              <div style="font-size:0.85rem;color:var(--charcoal);font-weight:500;">Support personnalisé</div>
+              <div class="stat-box-num">24/7</div>
+              <div class="stat-box-label">Support personnalisé</div>
             </div>
             <div>
-              <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--gold);margin-bottom:4px;">95%</div>
-              <div style="font-size:0.85rem;color:var(--charcoal);font-weight:500;">Taux de satisfaction</div>
+              <div class="stat-box-num">95%</div>
+              <div class="stat-box-label">Taux de satisfaction</div>
             </div>
           </div>
         </div>
 
-        <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(0,0,0,0.06);display:flex;gap:16px;flex-wrap:wrap;">
+        <div class="detail-actions">
           <a href="https://learnai.tmconsultingf.com/" class="btn btn-primary" target="_blank" rel="noopener">Accéder à la plateforme →</a>
-          <a href="contact.html?formation=geomatique-ia" class="btn btn-outline" style="color:var(--black);border-color:rgba(0,0,0,0.2)">Demander des informations</a>
+          <a href="contact.html?formation=geomatique-ia" class="btn btn-outline">Demander des informations</a>
         </div>
       </div>
     </div>

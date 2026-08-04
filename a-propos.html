@@ -4,68 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>À propos — Dr Tahirou Mballo</title>
-  <meta name="description" content="Découvrez le parcours académique et professionnel de Dr Tahirou Mballo : PhD Sorbonne, géomaticien, directeur industriel, formateur international." />
+  <meta name="description" content="Découvrez le parcours académique et professionnel de Dr Tahirou Mballo : PhD Sorbonne, géomaticien, Président, formateur international." />
   <link rel="stylesheet" href="style.css" />
   <style>
     .timeline { position: relative; padding-left: 40px; }
     .timeline::before {
       content: '';
       position: absolute; left: 8px; top: 0; bottom: 0;
-      width: 1px; background: rgba(201,168,76,0.25);
+      width: 1px; background: var(--gray-100);
     }
-    .timeline-item {
-      position: relative; margin-bottom: 48px;
-    }
+    .timeline-item { position: relative; margin-bottom: 44px; }
     .timeline-dot {
       position: absolute; left: -36px; top: 4px;
       width: 14px; height: 14px;
-      background: var(--gold); border-radius: 50%;
-      border: 3px solid var(--off-white);
+      background: var(--grad-primary); border-radius: 50%;
+      border: 3px solid var(--white);
+      box-shadow: var(--shadow-sm);
     }
     .timeline-year {
-      font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 8px;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 8px;
     }
     .timeline-title {
       font-family: var(--font-display);
-      font-size: 1.2rem; font-weight: 600;
-      color: var(--black); margin-bottom: 6px;
+      font-size: 1.18rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 6px;
     }
     .timeline-org {
-      font-size: 0.82rem; color: var(--mid);
+      font-size: 0.9rem; color: var(--gray-500);
       font-weight: 500; margin-bottom: 10px;
     }
     .timeline-desc {
-      font-size: 0.88rem; color: var(--charcoal);
-      line-height: 1.8; font-weight: 300;
+      font-size: 0.96rem; color: var(--gray-700);
+      line-height: 1.8; font-weight: 400;
     }
     .skills-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 24px; margin-top: 48px;
     }
     .skill-block {
-      background: var(--white); padding: 28px 24px;
-      border: 1px solid rgba(0,0,0,0.06);
-      border-top: 3px solid var(--gold);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      transition: var(--transition);
     }
+    .skill-block:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); }
     .skill-block-title {
       font-family: var(--font-display); font-size: 1.1rem;
-      font-weight: 600; color: var(--black); margin-bottom: 16px;
+      font-weight: 700; color: var(--white); margin-bottom: 18px;
     }
     .skill-tag {
       display: inline-block;
-      background: var(--gold-pale); color: var(--charcoal);
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
-      padding: 4px 10px; margin: 3px 3px 3px 0;
+      background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.02em;
+      padding: 6px 12px; margin: 3px 4px 3px 0;
+      border-radius: var(--r-full);
     }
     .about-split {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
+      display: grid; grid-template-columns: 0.85fr 1.15fr;
+      gap: 72px; align-items: start;
     }
+    .about-split-img {
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-split-img img { width: 100%; display: block; object-fit: cover; }
     @media (max-width: 768px) {
       .skills-grid { grid-template-columns: 1fr; }
-      .about-split { grid-template-columns: 1fr; gap: 48px; }
+      .about-split { grid-template-columns: 1fr; gap: 40px; }
     }
   </style>
 
@@ -91,7 +102,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
-      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="a-propos.html" class="active">À propos</a></li>
       <li><a href="formations.html">Formations</a></li>
       <li><a href="solutions.html">Solutions SaaS</a></li>
       <li><a href="contact.html" class="nav-cta">Consultation</a></li>
@@ -109,7 +120,7 @@
       <span>À propos</span>
     </div>
     <div class="section-eyebrow">
-      <span class="section-eyebrow-line"></span>
+      <div class="section-eyebrow-dot"></div>
       <span>Parcours & expertise</span>
     </div>
     <h1 class="section-title">Dr Tahirou Mballo</h1>
@@ -118,31 +129,30 @@
 </div>
 
 <!-- BIO SPLIT -->
-<section style="background:var(--off-white)">
+<section style="background:var(--white)">
   <div class="container">
     <div class="about-split">
-      <div>
+      <div class="about-split-img">
         <img
-          src="https://images.squarespace-cdn.com/content/v1/696e6aacc1ed0f433fd55e11/cd7c0e10-d17a-49be-b29f-80b2550ee6e0/image+Tahirou.jpg"
+          src="dr-tahirou-mballo.png"
           alt="Dr Tahirou Mballo"
-          style="width:100%; max-width:460px; display:block;"
           loading="lazy"
         />
       </div>
       <div>
         <div class="section-eyebrow fade-up">
-          <span class="section-eyebrow-line"></span>
+          <div class="section-eyebrow-dot"></div>
           <span>Qui je suis</span>
         </div>
         <h2 class="section-title fade-up">Transformer la stratégie<br><em>en résultats concrets</em></h2>
-        <p style="font-size:1rem; line-height:1.9; color:var(--charcoal); font-weight:300; margin-bottom:24px;" class="fade-up">
+        <p style="font-size:1rem; line-height:1.9; color:var(--gray-700); font-weight:400; margin-bottom:24px;" class="fade-up">
           Dr Tahirou Mballo est Président, Administrateur et Géomaticien, avec une solide expérience en accompagnement des organisations, des gestionnaires et des équipes opérationnelles sur trois continents.
         </p>
-        <p style="font-size:1rem; line-height:1.9; color:var(--charcoal); font-weight:300; margin-bottom:24px;" class="fade-up">
+        <p style="font-size:1rem; line-height:1.9; color:var(--gray-700); font-weight:400; margin-bottom:24px;" class="fade-up">
           Son approche combine expertise technique, vision stratégique et compréhension profonde des réalités du terrain. Il intervient là où la stratégie doit devenir action : organisation des opérations, structuration des données, mise en place d'outils de pilotage et montée en compétences des équipes.
         </p>
-        <p style="font-size:1rem; line-height:1.9; color:var(--charcoal); font-weight:300;" class="fade-up">
-          En géomatique, il accompagne la conception et la mise en place de bases de données à référence spatiale adaptées aux besoins des organisations et collectivités. Notre équipe développe également des solutions SaaS métier — GembaCoach, Orkestria, Punch TM, TM Ledger, SIG Intelligent — adaptées aux réalités des entreprises africaines et internationales.
+        <p style="font-size:1rem; line-height:1.9; color:var(--gray-700); font-weight:400;" class="fade-up">
+          En géomatique, il accompagne la conception et la mise en place de bases de données à référence spatiale adaptées aux besoins des organisations et collectivités. Notre équipe développe également des solutions SaaS métier — GembaCoach, Orkestria, Punch TM, TM Ledger, SIG Intelligent — multilingues et pensées pour un marché international.
         </p>
       </div>
     </div>
@@ -150,10 +160,10 @@
 </section>
 
 <!-- DIPLÔMES / TIMELINE -->
-<section style="background:var(--white)">
+<section style="background:var(--off-white)">
   <div class="container">
     <div class="section-eyebrow fade-up">
-      <span class="section-eyebrow-line"></span>
+      <div class="section-eyebrow-dot"></div>
       <span>Formation académique</span>
     </div>
     <h2 class="section-title fade-up">Diplômes &<br><em>parcours universitaire</em></h2>
@@ -198,10 +208,10 @@
 </section>
 
 <!-- EXPÉRIENCE PRO -->
-<section style="background:var(--off-white)">
+<section style="background:var(--white)">
   <div class="container">
     <div class="section-eyebrow fade-up">
-      <span class="section-eyebrow-line"></span>
+      <div class="section-eyebrow-dot"></div>
       <span>Expérience professionnelle</span>
     </div>
     <h2 class="section-title fade-up">Postes de direction<br><em>& responsabilités</em></h2>
@@ -270,11 +280,11 @@
 </section>
 
 <!-- COMPÉTENCES -->
-<section style="background:var(--dark)">
+<section style="background:var(--navy)">
   <div class="container">
-    <div class="section-eyebrow fade-up">
-      <span class="section-eyebrow-line"></span>
-      <span>Domaines de compétence</span>
+    <div class="section-eyebrow fade-up" style="background:rgba(255,255,255,0.08)">
+      <div class="section-eyebrow-dot"></div>
+      <span style="color:var(--teal)">Domaines de compétence</span>
     </div>
     <h2 class="section-title fade-up" style="color:var(--white)">Une expertise<br><em>multidimensionnelle</em></h2>
     <div class="skills-grid">
@@ -305,7 +315,7 @@
         <span class="skill-tag">Punch TM</span>
         <span class="skill-tag">TM Ledger</span>
         <span class="skill-tag">SIG Intelligent</span>
-        <span class="skill-tag">SaaS Afrique</span>
+        <span class="skill-tag">SaaS international</span>
         <span class="skill-tag">Architecture logicielle</span>
       </div>
     </div>

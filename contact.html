@@ -46,7 +46,7 @@
       <span>Contact & Consultation</span>
     </div>
     <div class="section-eyebrow">
-      <span class="section-eyebrow-line"></span>
+      <div class="section-eyebrow-dot"></div>
       <span>Travaillons ensemble</span>
     </div>
     <h1 class="section-title">Discutons de votre projet</h1>
@@ -61,16 +61,34 @@
       <!-- INFO CÔTÉ -->
       <div>
         <div class="section-eyebrow fade-up">
-          <span class="section-eyebrow-line"></span>
+          <div class="section-eyebrow-dot"></div>
           <span>Informations de contact</span>
         </div>
-        <h2 class="section-title fade-up" style="font-size:1.8rem;margin-bottom:40px;">Plusieurs façons<br><em>de me joindre</em></h2>
+        <h2 class="section-title fade-up" style="font-size:1.9rem;margin-bottom:40px;">Plusieurs façons<br><em>de me joindre</em></h2>
 
         <div class="contact-info-item fade-up">
           <div class="contact-icon">📞</div>
           <div class="contact-info-text">
-            <strong>Téléphone</strong>
-            <a href="tel:+18195803923">+1 819 580 39 23</a>
+            <strong>Ligne directe · Canada</strong>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <a href="tel:+18195803923">+1 819 580 39 23</a>
+              <a href="https://wa.me/18195803923" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:#1DA851;text-decoration:none;">
+                <span style="font-size:1rem;">💬</span> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info-item fade-up">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info-text">
+            <strong>Ligne Afrique · Sénégal</strong>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <a href="tel:+221710117246">+221 71 011 72 46</a>
+              <a href="https://wa.me/221710117246" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:#1DA851;text-decoration:none;">
+                <span style="font-size:1rem;">💬</span> WhatsApp
+              </a>
+            </div>
           </div>
         </div>
 
@@ -90,18 +108,18 @@
           </div>
         </div>
 
-        <div style="background:var(--gold-pale);border:1px solid rgba(201,168,76,0.3);padding:28px 24px;margin-top:40px;" class="fade-up">
-          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Zones d'intervention</div>
+        <div style="background:var(--blue-pale);border:1px solid rgba(37,99,235,0.15);border-radius:var(--r-lg);padding:28px 26px;margin-top:40px;" class="fade-up">
+          <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;">Zones d'intervention</div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <span style="font-size:0.82rem;font-weight:500;color:var(--charcoal);">🇨🇦 Canada</span>
-            <span style="color:var(--silver)">·</span>
-            <span style="font-size:0.82rem;font-weight:500;color:var(--charcoal);">🇸🇳 Sénégal</span>
-            <span style="color:var(--silver)">·</span>
-            <span style="font-size:0.82rem;font-weight:500;color:var(--charcoal);">🇫🇷 France</span>
-            <span style="color:var(--silver)">·</span>
-            <span style="font-size:0.82rem;font-weight:500;color:var(--charcoal);">🌍 Afrique francophone</span>
+            <span style="font-size:0.9rem;font-weight:500;color:var(--navy);">🇨🇦 Canada</span>
+            <span style="color:var(--gray-300)">·</span>
+            <span style="font-size:0.9rem;font-weight:500;color:var(--navy);">🇸🇳 Sénégal</span>
+            <span style="color:var(--gray-300)">·</span>
+            <span style="font-size:0.9rem;font-weight:500;color:var(--navy);">🇫🇷 France</span>
+            <span style="color:var(--gray-300)">·</span>
+            <span style="font-size:0.9rem;font-weight:500;color:var(--navy);">🌍 Afrique francophone</span>
           </div>
-          <p style="font-size:0.8rem;color:var(--mid);margin-top:12px;line-height:1.6;">Interventions en présentiel et à distance. Déplacements possibles sur demande.</p>
+          <p style="font-size:0.88rem;color:var(--gray-500);margin-top:14px;line-height:1.7;">Interventions en présentiel et à distance. Déplacements possibles sur demande.</p>
         </div>
       </div>
 
@@ -111,13 +129,9 @@
           id="contact-form"
           name="contact"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
+          action="https://formspree.io/f/mnpaaaao"
           class="contact-form"
         >
-          <!-- Netlify hidden field -->
-          <input type="hidden" name="form-name" value="contact" />
-          <p style="display:none;"><label>Ne pas remplir : <input name="bot-field" /></label></p>
 
           <div class="form-row">
             <div class="form-group">
@@ -147,6 +161,7 @@
               <option value="formation-operations">Formation — Gestion des opérations industrielles</option>
               <option value="formation-geomatique">Formation — Géomatique & PostGIS</option>
               <option value="gembacoach">GembaCoach — Coaching opérationnel</option>
+              <option value="solutions-saas">Solutions SaaS — Démo / Intégration</option>
               <option value="conseil">Conseil & accompagnement sur-mesure</option>
               <option value="consultation">Consultation initiale (gratuite)</option>
               <option value="autre">Autre demande</option>
@@ -163,11 +178,11 @@
             <textarea class="form-textarea" id="message" name="message" required placeholder="Décrivez votre projet, vos besoins ou vos questions…" style="min-height:160px;"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:18px 32px;font-size:0.88rem;">
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:18px 32px;font-size:1rem;">
             Envoyer le message →
           </button>
 
-          <p style="font-size:0.75rem;color:var(--mid);text-align:center;margin-top:12px;">
+          <p style="font-size:0.85rem;color:var(--gray-500);text-align:center;margin-top:12px;">
             Réponse garantie sous 24 heures. Vos données sont confidentielles.
           </p>
         </form>
@@ -203,6 +218,7 @@
         <div class="footer-col-title">Contact</div>
         <ul class="footer-links">
           <li><a href="tel:+18195803923">📞 +1 819 580 39 23</a></li>
+          <li><a href="tel:+221710117246">📱 +221 71 011 72 46</a></li>
           <li><a href="mailto:contact@tmconsultingf.com">✉ contact@tmconsultingf.com</a></li>
           <li><a href="https://www.tmconsultingf.com" target="_blank">🌐 tmconsultingf.com</a></li>
         </ul>

@@ -297,7 +297,9 @@ nav {
 
 .hero-img-wrap img {
   width: 100%;
-  height: 560px;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  max-height: 560px;
   object-fit: cover;
   object-position: top center;
 }
@@ -535,7 +537,8 @@ section { padding: var(--section-pad); }
   border-radius: var(--r-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  height: 560px;
+  aspect-ratio: 4 / 5;
+  max-height: 560px;
 }
 
 .about-img-col img {
@@ -898,7 +901,6 @@ footer { background: var(--navy); padding: 72px 0 32px; }
   .services-grid { grid-template-columns: 1fr 1fr; }
   .impact-grid { grid-template-columns: repeat(2, 1fr); }
   .about-strip-inner { grid-template-columns: 1fr; gap: 48px; }
-  .about-img-col { height: 420px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 

@@ -39,6 +39,49 @@
       font-size: 0.96rem; color: var(--gray-700);
       line-height: 1.8; font-weight: 400;
     }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px; margin-top: 48px;
+    }
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+    }
+    .team-card-img { height: 280px; overflow: hidden; }
+    .team-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      transition: transform 0.6s var(--ease);
+    }
+    .team-card:hover .team-card-img img { transform: scale(1.06); }
+    .team-card-body { padding: 28px 26px 30px; }
+    .team-card-name {
+      font-family: var(--font-display);
+      font-size: 1.22rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 4px;
+    }
+    .team-card-role {
+      font-size: 0.86rem; font-weight: 600;
+      color: var(--blue); margin-bottom: 14px;
+    }
+    .team-card-bio {
+      font-size: 0.92rem; color: var(--gray-500);
+      line-height: 1.75; font-weight: 400;
+    }
+    @media (max-width: 1024px) {
+      .team-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
     .skills-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 24px; margin-top: 48px;
@@ -275,6 +318,88 @@
         </div>
 
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTRE ÉQUIPE -->
+<section style="background:var(--off-white)">
+  <div class="container">
+    <div class="section-eyebrow fade-up">
+      <div class="section-eyebrow-dot"></div>
+      <span>L'équipe</span>
+    </div>
+    <h2 class="section-title fade-up">Une équipe<br><em>pluridisciplinaire à vos côtés</em></h2>
+    <p class="section-subtitle fade-up">Commerce, ingénierie, marketing, gestion de projet et développement — une équipe complémentaire au service de vos projets.</p>
+
+    <div class="team-grid">
+
+      <div class="team-card fade-up">
+        <div class="team-card-img">
+          <img src="team-marc-andre-giroux.png" alt="Marc André Giroux" loading="lazy" />
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name">Marc André Giroux</div>
+          <div class="team-card-role">Directeur commercial senior</div>
+          <p class="team-card-bio">Solide expérience en développement commercial, stratégie de vente et gestion de comptes clés. Orienté résultats, il accompagne la croissance de l'entreprise en développant de nouveaux marchés, en renforçant les relations clients et en bâtissant des partenariats durables.</p>
+        </div>
+      </div>
+
+      <div class="team-card fade-up">
+        <div class="team-card-img">
+          <img src="team-daouda-ngom.png" alt="Daouda Ngom" loading="lazy" />
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name">Daouda Ngom</div>
+          <div class="team-card-role">Ingénieur en automatisation industrielle</div>
+          <p class="team-card-bio">Spécialisé dans la conception, l'intégration et l'optimisation de systèmes automatisés. Il accompagne les entreprises dans l'amélioration de leurs procédés de production grâce à des solutions innovantes, fiables et performantes.</p>
+        </div>
+      </div>
+
+      <div class="team-card fade-up">
+        <div class="team-card-img">
+          <img src="team-vanessa-johnson.png" alt="Vanessa Johnson" loading="lazy" />
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name">Vanessa Johnson</div>
+          <div class="team-card-role">Responsable marketing</div>
+          <p class="team-card-bio">Diplômée en marketing, elle pilote la stratégie marketing et la communication de l'entreprise. Spécialisée en marketing numérique, développement de marque et acquisition de clients, elle conçoit des campagnes qui renforcent la visibilité et fidélisent la clientèle.</p>
+        </div>
+      </div>
+
+      <div class="team-card fade-up">
+        <div class="team-card-img">
+          <img src="team-helene-ndiaye.png" alt="Hélène Ndiaye" loading="lazy" />
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name">Hélène Ndiaye</div>
+          <div class="team-card-role">Cheffe de projet</div>
+          <p class="team-card-bio">Diplômée en gestion de projet, elle coordonne et pilote des projets de leur conception jusqu'à leur mise en œuvre. Organisée, rigoureuse et orientée résultats, elle veille au respect des délais, des budgets et des objectifs.</p>
+        </div>
+      </div>
+
+      <div class="team-card fade-up">
+        <div class="team-card-img">
+          <img src="team-bastien-taylor.png" alt="Bastien Taylor" loading="lazy" />
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name">Bastien Taylor</div>
+          <div class="team-card-role">Ingénieur informatique | Spécialiste en cybersécurité</div>
+          <p class="team-card-bio">Diplômé du MIT, fort d'une expérience acquise au sein de l'écosystème technologique de la Silicon Valley. Il conçoit et déploie des solutions de sécurité robustes pour protéger les infrastructures, les applications et les données des entreprises.</p>
+        </div>
+      </div>
+
+      <div class="team-card fade-up">
+        <div class="team-card-img">
+          <img src="team-deborah-clinton.png" alt="Deborah Clinton" loading="lazy" />
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name">Deborah Clinton</div>
+          <div class="team-card-role">Ingénieure développeuse</div>
+          <p class="team-card-bio">Développeuse passionnée, elle conçoit des applications web et mobiles modernes, performantes et évolutives. Spécialisée dans le développement full-stack, elle met son expertise au service de solutions innovantes, sécurisées et centrées sur les utilisateurs.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
